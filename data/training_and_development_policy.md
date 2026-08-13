@@ -1,0 +1,16 @@
+# Professional Training and Workforce Development Scheme
+
+## 1. Annual Learning Stipends and Budget Allocations
+The enterprise nurtures continuous skill acquisition by provisioning an annual training stipend for eligible workforce participants. Permanent staff completing their initial 6-month probationary period qualify for an individual educational allocation of 2,500 CHF per calendar year. Funding covers professional certifications, specialized technical bootcamps, language courses, and academic course materials. Allocation balances do not roll over into subsequent financial periods, resetting to zero automatically on December 31st without exception. Part-time personnel working under a 50% contract receive a pro-rated stipend of 1,250 CHF annually.
+
+## 2. Course Selection and Learning Management System Tracking
+Educational programs must align with current operational tracks or emerging technological needs of the organization. Workforce members submit formal training requests via the Workday Learning Management System, where line managers evaluate proposals based on team skill gaps and performance development targets. Approved participants gain full access to the Coursera for Business catalog and are allocated up to 40 hours of paid training per year during standard working hours, monitored via digital attendance trackers. Training requests exceeding 3 business days of absence must be logged at least 30 days prior to course commencement.
+
+## 3. Tuition Reimbursement and Retention Clawback Provisions
+For long-term postgraduate programs or executive certifications exceeding 5,000 CHF in total cost, a separate tuition reimbursement contract is required. The enterprise funds up to 80% of tuition costs, conditional on the participant securing a minimum passing grade of 80% or an official Grade B equivalent. If the participant voluntarily separates from the employer within a 12-month clawback period post-graduation, they are legally bound to repay 100% of the sponsored educational funds, scaling down to 50% if separation occurs between 13 and 24 months, ensuring human capital protection.
+
+## 4. Internal Knowledge Sharing and Mentorship Initiatives
+To maximize the institutional value of external training, funded participants are required to host a 60-minute internal knowledge-sharing seminar or technical workshop within 45 days of completing their course. These sessions are recorded and archived within the corporate intranet video library for cross-functional learning. Additionally, senior engineering personnel are mandated to dedicate 2 hours per month to the internal technical mentorship program, guiding junior specialists through advanced architectural frameworks and professional growth tracks tracked via the career development portal.
+
+## 5. Quality Assurance and External Provider Vetting
+To ensure high educational standards, all external training organizations, universities, and technical certification bootcamps must be vetted by the human resources development team prior to enrollment. Providers must hold valid industry accreditations or ISO 29993 certifications for non-formal education and training. Personnel are required to submit an anonymous quality evaluation form regarding the course instructor, materials, and overall utility within 14 days of completion to maintain the approved provider registry.
