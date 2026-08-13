@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Needless Goods Co. — Ask the Help Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF6EA;
+  --paper-2:#F3ECDA;
+  --ink:#241B33;
+  --coral:#FF5D5D;
+  --coral-dim:#C6413F;
+  --mustard:#FFC145;
+  --mint:#3FB8A3;
+  --mint-dim:#2B8478;
+  --muted:#8A8073;
+  --line:#E4D9BF;
+  --font-display:'Bungee',cursive;
+  --font-body:'Space Grotesk',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:
+    repeating-linear-gradient(135deg, rgba(36,27,51,0.025) 0 2px, transparent 2px 26px),
+    var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  min-height:100vh;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:36px 24px 70px;}
+
+/* header */
+.hero{position:relative;border-bottom:3px dashed var(--ink);padding-bottom:26px;margin-bottom:30px;}
+.badge{
+  position:absolute;top:-6px;right:0;width:118px;height:118px;
+  background:var(--coral);border-radius:50%;color:var(--paper);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:var(--font-display);font-size:12.5px;line-height:1.35;padding:10px;
+  transform:rotate(9deg);box-shadow:0 4px 0 rgba(0,0,0,0.15);
+}
+.eyebrow{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mint-dim);margin-bottom:12px;display:flex;align-items:center;gap:8px;
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);}
+h1{
+  font-family:var(--font-display);font-weight:400;
+  font-size:clamp(28px,4.6vw,50px);margin:0 0 10px;color:var(--ink);
+  letter-spacing:.01em;max-width:760px;
+}
+h1 span{color:var(--coral);}
+.subtitle{color:#5B5142;font-size:16.5px;max-width:640px;line-height:1.55;margin:0 0 4px;}
+.subtitle b{color:var(--ink);}
+
+/* pipeline strip */
+.pipeline{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:24px;
+}
+.pipe-step{background:var(--paper-2);padding:16px 16px 18px;}
+.pipe-step .num{font-family:var(--font-mono);font-size:11px;color:var(--coral);margin-bottom:6px;font-weight:600;}
+.pipe-step .label{font-family:var(--font-display);font-size:14px;color:var(--ink);margin-bottom:5px;}
+.pipe-step .desc{font-size:12.5px;color:#6B6153;line-height:1.45;}
+
+/* layout: stacked full-width sections */
+.layout{display:flex;flex-direction:column;gap:26px;margin-top:34px;}
+
+.panel{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;}
+.panel-head{
+  padding:15px 18px;border-bottom:3px dashed var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.panel-head h2{font-family:var(--font-display);font-size:14px;margin:0;color:var(--ink);}
+.panel-head .count{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+
+/* catalog grid */
+.catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;padding:16px;}
+.catalog-card{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--paper);}
+.catalog-card .row{display:flex;justify-content:space-between;gap:8px;align-items:baseline;}
+.catalog-card .title{font-weight:600;font-size:14.5px;color:var(--ink);}
+.catalog-card .price{font-family:var(--font-mono);font-size:12.5px;color:var(--coral-dim);white-space:nowrap;}
+.catalog-card .cat{font-family:var(--font-mono);font-size:10px;color:var(--mint-dim);text-transform:uppercase;letter-spacing:.06em;margin:5px 0 8px;}
+.catalog-card .desc{font-size:13px;line-height:1.55;color:#5B5142;}
+
+/* === CODING SANDBOX (dark, distinct from the catalog) === */
+.sandbox-panel{background:#1E1A2E;border:1px solid #3A3355;}
+.sandbox-panel .panel-head{border-bottom:3px dashed #3A3355;}
+.sandbox-panel .panel-head h2{color:#F3ECE0;}
+.sandbox-panel .panel-head .count{color:#B7ACD6;}
+.sandbox-body{padding:20px;}
+.sandbox-intro{color:#C9BFE3;font-size:14.5px;line-height:1.6;margin:0 0 20px;}
+.sandbox-intro b{color:var(--mustard);}
+.code-block{margin-bottom:22px;}
+.step-label{font-family:var(--font-mono);font-size:11px;color:var(--mustard);letter-spacing:.06em;margin-bottom:8px;}
+.code-block pre{
+  margin:0;background:#151223;border:1px solid #322C4A;border-radius:8px;padding:14px 16px;
+  overflow-x:auto;font-family:var(--font-mono);font-size:13px;line-height:1.8;color:#EDE6D6;
+}
+.code-block code{white-space:pre;}
+.code-block code .c{color:#7A7196;}
+.code-block code .kw{color:#7FD1C0;}
+.code-block code .s{color:var(--mustard);}
+.blank{
+  font-family:var(--font-mono);font-size:13px;background:#2A2440;color:#fff;
+  border:1.5px solid var(--coral);border-radius:5px;padding:2px 8px;min-width:170px;outline:none;
+}
+.blank.wide{min-width:230px;}
+.blank.xwide{min-width:360px;}
+.blank::placeholder{color:#6E6390;}
+.blank:focus{border-color:var(--mustard);}
+.blank.correct{border-color:var(--mint);background:rgba(63,184,163,0.18);color:#B9F3E7;}
+.blank.incorrect{animation:shake .3s;border-color:var(--coral);}
+@keyframes shake{
+  0%,100%{transform:translateX(0);}
+  25%{transform:translateX(-4px);}
+  75%{transform:translateX(4px);}
+}
+.hint{display:none;margin-top:8px;font-size:12.5px;color:#B7ACD6;background:#252040;border-left:3px solid var(--mustard);padding:8px 12px;border-radius:4px;}
+.hint code{color:var(--mustard);background:none;padding:0;}
+.sandbox-actions{display:flex;align-items:center;gap:12px;margin-top:4px;flex-wrap:wrap;}
+.step-actions{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap;}
+.step-actions .sandbox-btn{padding:7px 16px;font-size:11px;}
+.step-progress{font-family:var(--font-mono);font-size:11.5px;color:#B7ACD6;}
+.sandbox-btn{
+  font-family:var(--font-display);font-size:12px;border:none;border-radius:8px;padding:10px 22px;cursor:pointer;
+}
+.sandbox-btn.check{background:var(--mint);color:#0F1B18;}
+.sandbox-btn.check:hover{background:#59D6C0;}
+.sandbox-btn.help{background:transparent;border:1.5px solid var(--mustard);color:var(--mustard);}
+.sandbox-btn.help:hover{background:rgba(255,193,69,0.1);}
+.api-key-link{margin-top:10px;}
+.api-key-link a{font-family:var(--font-mono);font-size:11.5px;color:var(--mustard);text-decoration:none;border-bottom:1px dashed var(--mustard);}
+.api-key-link a:hover{color:#FFD98A;border-bottom-style:solid;}
+.sandbox-success{
+  display:none;margin-top:16px;background:rgba(63,184,163,0.12);border:1px solid var(--mint-dim);
+  border-radius:8px;padding:12px 16px;font-size:13.5px;color:#B9F3E7;
+}
+
+/* chat */
+.chat-body{padding:18px;max-height:520px;overflow-y:auto;}
+.msg{margin-bottom:18px;}
+.msg .who{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.msg.user .who{color:var(--coral-dim);}
+.msg.assistant .who{color:var(--mint-dim);}
+.msg .bubble{font-size:15px;line-height:1.65;color:var(--ink);white-space:pre-wrap;}
+.msg.user .bubble{color:#5B5142;}
+
+.trace{margin-top:12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:12px 14px;}
+.trace-head{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
+.trace-row{display:grid;grid-template-columns:150px 1fr 46px;gap:10px;align-items:center;margin-bottom:7px;font-family:var(--font-mono);font-size:11.5px;}
+.trace-row .t-title{color:#5B5142;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.trace-bar-bg{background:var(--paper-2);border-radius:3px;height:6px;overflow:hidden;border:1px solid var(--line);}
+.trace-bar-fill{height:100%;background:linear-gradient(90deg,var(--mint-dim),var(--mint));border-radius:3px;}
+.trace-row .t-score{color:var(--mint-dim);text-align:right;}
+
+.chat-input-row{display:flex;gap:10px;padding:14px 18px;border-top:3px dashed var(--line);}
+.chat-input-row input{
+  flex:1;background:var(--paper);border:1px solid var(--line);border-radius:8px;color:var(--ink);
+  padding:11px 14px;font-family:var(--font-body);font-size:14.5px;outline:none;
+}
+.chat-input-row input:focus{border-color:var(--mint-dim);}
+.chat-input-row button{
+  background:var(--coral);color:var(--paper);border:none;border-radius:8px;padding:0 20px;
+  font-family:var(--font-display);font-size:12px;cursor:pointer;
+}
+.chat-input-row button:disabled{opacity:.5;cursor:default;}
+.chat-input-row button:hover:not(:disabled){background:var(--coral-dim);}
+
+.suggestions{padding:0 18px 14px;display:flex;flex-wrap:wrap;gap:8px;}
+.suggestion{
+  font-family:var(--font-mono);font-size:11.5px;color:var(--mint-dim);border:1px solid var(--mint-dim);
+  border-radius:20px;padding:6px 12px;cursor:pointer;background:transparent;
+}
+.suggestion:hover{border-color:var(--mint);background:rgba(63,184,163,0.08);}
+
+.status-line{font-family:var(--font-mono);font-size:11px;color:var(--muted);padding:0 18px 10px;}
+.footnote{margin-top:26px;font-family:var(--font-mono);font-size:11.5px;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="badge">AS SEEN<br>NOWHERE</div>
+    <div class="eyebrow"><span class="dot"></span>INTERNAL TOOLS · HELP DESK REBUILD</div>
+    <h1>Needless Goods Co.<br><span>Ask the Help Desk</span></h1>
+    <p class="subtitle">Needless Goods Co.'s last help desk bot kept inventing prices and policies that don't exist, and got quietly retired. You've been brought in to build its replacement: browse the catalog, wire up the retrieval pipeline below, then put the new Help Desk to work.</p>
+
+    <div class="pipeline">
+      <div class="pipe-step"><div class="num">01</div><div class="label">Chunk</div><div class="desc">The catalog is split into 15 listings — 11 products, plus shipping, returns, warranty and an About Us nobody asked for.</div></div>
+      <div class="pipe-step"><div class="num">02</div><div class="label">Embed</div><div class="desc">Every listing becomes a numeric vector once, up front, and stays cached in memory.</div></div>
+      <div class="pipe-step"><div class="num">03</div><div class="label">Retrieve</div><div class="desc">Your question is embedded the same way; a plain for‑loop scores every listing by cosine similarity.</div></div>
+      <div class="pipe-step"><div class="num">04</div><div class="label">Generate</div><div class="desc">The top‑5 listings + your question go to Gemini, which is only allowed to answer from that context.</div></div>
+    </div>
+  </div>
+
+  <div class="layout">
+
+    <!-- 1. CATALOG -->
+    <div class="panel">
+      <div class="panel-head"><h2>The Catalog</h2><span class="count">15 listings</span></div>
+      <div class="catalog-grid" id="catalogGrid"></div>
+    </div>
+
+    <!-- 2. CODING SANDBOX -->
+    <div class="panel sandbox-panel">
+      <div class="panel-head"><h2>Build The Pipeline</h2><span class="count" id="sandboxProgress">loading…</span></div>
+      <div class="sandbox-body">
+        <p class="sandbox-intro">Wire up the five pieces the Help Desk needs to answer honestly instead of guessing — including cosine similarity, built from scratch. Each field starts <b>red</b>; fill it in and press <b>Check</b> — correct ones turn <b>green</b>. Stuck? Press <b>Help</b>.</p>
+
+        <div class="code-block">
+          <div class="step-label">STEP 1 — EMBED THE CATALOG (ONCE, UP FRONT)</div>
+          <pre><code><span class="kw">from</span> sentence_transformers <span class="kw">import</span> SentenceTransformer
+
+<span class="c"># a small, free, local model — good enough to embed a 15-item catalog</span>
+embedding_model = SentenceTransformer(<span class="s">'all-MiniLM-L6-v2'</span>)
+
+<span class="c"># every listing becomes a vector exactly once — this list is reused for every question asked later</span>
+chunk_vectors = [<input id="blank1" class="blank" spellcheck="false" autocomplete="off" placeholder="???" />(chunk) <span class="kw">for</span> chunk <span class="kw">in</span> catalog_chunks]</code></pre>
+          <div class="hint" id="hint1">Hint: call <code>.encode(...)</code> on <code>embedding_model</code> for each chunk in the loop — <code>embedding_model.encode</code>.</div>
+          <div class="step-actions">
+            <button class="sandbox-btn check" data-step="step1">Check</button>
+            <button class="sandbox-btn help" data-step="step1">Help</button>
+            <span class="step-progress" id="progress-step1"></span>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="step-label">STEP 2 — EMBED THE INCOMING QUESTION</div>
+          <pre><code><span class="c"># same model, same method — the query has to land in the same vector space as the chunks</span>
+query_vector = <input id="blank2" class="blank" spellcheck="false" autocomplete="off" placeholder="???" />(user_question)</code></pre>
+          <div class="hint" id="hint2">Hint: same call as Step 1, just on a single string this time — <code>embedding_model.encode</code>.</div>
+          <div class="step-actions">
+            <button class="sandbox-btn check" data-step="step2">Check</button>
+            <button class="sandbox-btn help" data-step="step2">Help</button>
+            <span class="step-progress" id="progress-step2"></span>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="step-label">STEP 3 — COSINE SIMILARITY, BUILT FROM SCRATCH</div>
+          <pre><code><span class="kw">import</span> math
+
+<span class="kw">def</span> cosine_similarity(a, b):
+    <span class="c"># 1. pair up matching elements, multiply each pair, add all the products</span>
+    dot_product = <input id="blank3a" class="blank xwide" spellcheck="false" autocomplete="off" placeholder="???" />
+
+    <span class="c"># 2. "length" of each vector: square every value, sum them, take the square root</span>
+    norm_a = <input id="blank3b" class="blank xwide" spellcheck="false" autocomplete="off" placeholder="???" />
+    norm_b = <input id="blank3c" class="blank xwide" spellcheck="false" autocomplete="off" placeholder="???" />
+
+    <span class="kw">return</span> dot_product / (norm_a * norm_b)
+
+<span class="c"># now score every chunk against the query — no index, no library, just a loop</span>
+scores = []
+<span class="kw">for</span> i, chunk_vector <span class="kw">in</span> enumerate(chunk_vectors):
+    similarity = cosine_similarity(query_vector, chunk_vector)
+    scores.append((i, similarity))</code></pre>
+          <div class="hint" id="hint3a">Hint: multiply matching elements and add the results — e.g. <code>sum(x*y for x, y in zip(a, b))</code>.</div>
+          <div class="hint" id="hint3b">Hint: square every value in <code>a</code>, sum them, then square-root the total — e.g. <code>math.sqrt(sum(x**2 for x in a))</code>.</div>
+          <div class="hint" id="hint3c">Hint: same idea, but for vector <code>b</code> — <code>math.sqrt(sum(x**2 for x in b))</code>.</div>
+          <div class="step-actions">
+            <button class="sandbox-btn check" data-step="step3">Check</button>
+            <button class="sandbox-btn help" data-step="step3">Help</button>
+            <span class="step-progress" id="progress-step3"></span>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="step-label">STEP 4 — KEEP ONLY THE MOST RELEVANT CHUNKS</div>
+          <pre><code>scores.sort(key=<span class="kw">lambda</span> x: x[1], reverse=<span class="kw">True</span>)
+top_chunks = <input id="blank4" class="blank wide" spellcheck="false" autocomplete="off" placeholder="???" /></code></pre>
+          <div class="hint" id="hint4">Hint: <code>scores</code> is already sorted highest-first — just slice the top 5, e.g. <code>scores[:5]</code>.</div>
+          <div class="step-actions">
+            <button class="sandbox-btn check" data-step="step4">Check</button>
+            <button class="sandbox-btn help" data-step="step4">Help</button>
+            <span class="step-progress" id="progress-step4"></span>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="step-label">STEP 5 — CALL THE LLM WITH THE RETRIEVED CONTEXT</div>
+          <pre><code><span class="kw">from</span> google <span class="kw">import</span> genai
+
+client = genai.Client(api_key = <input id="apiKeyInput" class="blank xwide" type="password" spellcheck="false" autocomplete="off" placeholder="your-api-key" />)
+context = <span class="s">"\n\n"</span>.join(chunk_text[i] <span class="kw">for</span> i, score <span class="kw">in</span> top_chunks)
+
+response = <input id="blank5" class="blank xwide" spellcheck="false" autocomplete="off" placeholder="???" />(
+    model=<span class="s">"gemini-3.1-flash-lite"</span>,
+    contents=user_question,
+    config={<span class="s">"system_instruction"</span>: <span class="s">f"Answer using only this context:\n\n{context}"</span>}
+)
+
+answer = response.text</code></pre>
+          <div class="hint" id="hint5">Hint: on the <code>client</code> object you just created, you want the method that sends a generation request — <code>client.models.generate_content</code>.</div>
+          <div class="step-actions">
+            <button class="sandbox-btn check" data-step="step5">Check</button>
+            <button class="sandbox-btn help" data-step="step5">Help</button>
+            <span class="step-progress" id="progress-step5"></span>
+          </div>
+          <div class="api-key-link"><a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">Get a free Gemini API key from Google AI Studio →</a></div>
+        </div>
+
+        <div class="sandbox-success" id="sandboxSuccess">All five steps check out — that's the whole pipeline. It's the exact logic running live in the Help Desk below.</div>
+      </div>
+    </div>
+
+    <!-- 3. HELP DESK -->
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Help Desk (Deirdre, probably)</h2>
+        <span class="count" id="vecStatus">vectorizing…</span>
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="msg assistant">
+          <div class="who">Deirdre, Customer (Dis)Service</div>
+          <div class="bubble">Thanks for contacting Needless Goods Co. I can only answer from what's actually in the catalog — no making things up, no matter how tempting. Try asking about a product I couldn't possibly know about otherwise.</div>
+        </div>
+      </div>
+      <div class="suggestions" id="suggestions"></div>
+      <div class="status-line" id="statusLine"></div>
+      <div class="chat-input-row">
+        <input id="queryInput" type="text" placeholder="e.g. Will the Chocolate Teapot survive shipping?" />
+        <button id="sendBtn">Ask</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footnote">
+    Engineering notes — embeddings: this build computes TF‑IDF vectors client‑side (no model download, no network dependency) so the retrieval math is fully inspectable; a larger catalog would call for a neural sentence-embedding model (e.g. all‑MiniLM‑L6‑v2) and an ANN index, but the surrounding loop — embed once, embed the query, score every chunk, keep the top‑k, hand them to the LLM — is identical. Generation: answers are produced by Gemini via a live API call using only the retrieved listings as context.
+  </div>
+</div>
+
+<script>
+/* ---------------------------------------------------------
+   1) THE CORPUS — a fictional catalog, chunked by listing
+--------------------------------------------------------- */
+const ENTRIES = [
+{ id:1, cat:"Product", sku:"NG-0001", price:"$34.99", title:"The Umbrella Hat for Ants", text:"A precision-engineered umbrella hat sized for a colony of up to 40 ants. Internal testing shows it keeps 39 of them dry; one always gets wet, seemingly out of spite. Ships flat with a tiny drawstring chin strap. Note: never actually tested on real ants after an internal ethics committee intervened following an event staff refer to only as 'The Incident.'" },
+{ id:2, cat:"Product", sku:"NG-0002", price:"$19.99", title:"Left-Handed Screwdriver, Premium Edition", text:"Brass-plated and engineered exclusively for left-handed use, despite screwdrivers not functionally having a handedness. Customers report it works identically to a normal screwdriver, which we consider a feature. The company has received several strongly worded letters from physicists and one from a confused hardware store." },
+{ id:3, cat:"Product", sku:"NG-0003", price:"$12.50", title:"Inflatable Anvil", text:"Looks exactly like a 200-pound cast iron anvil, weighs 90 grams, and can be blown up in under a minute. Ideal for cartoon reenactments, gaslighting coworkers about your upper body strength, or completing a home gym aesthetic with none of the actual weight. Do not attempt to drop on cartoon coyotes; results will disappoint." },
+{ id:4, cat:"Product", sku:"NG-0004", price:"$15.00", title:"Glow-in-the-Dark Sunscreen, SPF -5", text:"Offers no protection from the sun and, according to lab results we're not proud of, actively seeks it out. Makes skin glow faintly for approximately 45 minutes after dark. Company disclaimer, printed in bold on every bottle: please still wear real sunscreen." },
+{ id:5, cat:"Product", sku:"NG-0005", price:"$27.75", title:"Doorbell for a Door That Doesn't Exist", text:"A fully functional, wall-mountable doorbell that rings a cheerful two-tone chime whenever pressed, regardless of the total absence of an attached door. Installed by over 4,200 customers to date, none of whom, as far as we can tell, own the door in question." },
+{ id:6, cat:"Product", sku:"NG-0006", price:"$22.00", title:"Candle: New Car (Interior of a 1998 Dodge Neon)", text:"Hand-poured scent notes of stale fast food, cracked vinyl, and the faint anxiety of a check-engine light that's been on since 2003. Burn time: 40 hours of regret. Frequently purchased alongside our Left-Handed Screwdriver for reasons the sales team has stopped asking about." },
+{ id:7, cat:"Product", sku:"NG-0007", price:"$18.25", title:"The Chocolate Teapot", text:"A solid milk chocolate teapot, fully functional as a teapot for approximately 4 seconds before structural integrity fails. Technically brews tea. We recommend having a camera ready and low expectations. Not recommended for shipping in summer, or really any season." },
+{ id:8, cat:"Product", sku:"NG-0008", price:"$64.99", title:"Anti-Gravity Boots, Mark I", text:"Do not defy gravity. What they do defy is your sense of balance, thanks to a proprietary ultra-low-friction sole gel. Customers describe the sensation as 'floating' right up until the moment they are 'on the floor.' Ships with a mandatory helmet and a laminated waiver." },
+{ id:9, cat:"Product", sku:"NG-0009", price:"$9.99", title:"USB Pet Rock", text:"Plugs into any standard USB port and does nothing except illuminate a tiny green LED confirming that it is, in fact, still a rock. No drivers required. Battery-free, since it is a rock. Our best-reviewed product, mostly by people who appreciate honesty in advertising." },
+{ id:10, cat:"Product", sku:"NG-0010", price:"$6.50", title:"Emergency Kazoo", text:"Comes in a red break-glass emergency case labeled 'IN CASE OF SILENCE.' Intended for genuine emergencies only, though company records show 340 units were purchased by a single wedding DJ, whom we have chosen not to contact for comment." },
+{ id:11, cat:"Product", sku:"NG-0011", price:"$8.00", title:"Waterproof Teabag", text:"Keeps tea leaves bone dry, indefinitely, under any water conditions. Yes, we are aware this means it cannot actually brew tea. We've repositioned it in our catalog as 'a very small, very sad stress ball,' which has improved customer satisfaction scores considerably." },
+{ id:12, cat:"Policy", sku:"POL-SHIP", price:"", title:"Shipping Policy", text:"All orders ship via our Certified Courier Sloth network. Standard shipping takes 7–12 business days, weather and enthusiasm permitting. 'Rush Sloth' shipping, an additional $4.99, adds one visibly more excited sloth to your order and reduces delivery time to a still-unpredictable 9–11 business days. No delivery window is guaranteed, morally or contractually." },
+{ id:13, cat:"Policy", sku:"POL-RETURN", price:"", title:"Return Policy", text:"Needless Goods Co. accepts returns of any item, in any condition, except the exact item you originally purchased, due to an unresolved warehouse mixup internally known as The Great Reshelving of 2019. Approved returns are refunded exclusively in store credit, issued as Fenwick Bucks, which cannot currently be redeemed for anything." },
+{ id:14, cat:"Policy", sku:"POL-WARRANTY", price:"", title:"Warranty", text:"Every item includes our Lifetime Warranty, covering manufacturing defects for the natural lifetime of the product. This warranty is automatically void the moment the product is used, touched, looked at directly, unboxed, or exists in the same room as the customer. We recommend framing the box instead." },
+{ id:15, cat:"About", sku:"ABOUT", price:"", title:"About Needless Goods Co.", text:"Founded by Bartholomew 'Bart' Fenwick-Snoot, who set out to import sewing needles and, due to a single misplaced letter on a customs form, received an entire warehouse of needless goods instead. Rather than correct the paperwork, Bart leaned in. Company motto: 'Solving problems you didn't have.' Loyalty members earn Fenwick Bucks on every purchase, redeemable for absolutely nothing yet — we're working on it." }
+];
+
+/* ---------------------------------------------------------
+   2) EMBEDDING — TF-IDF vectors, computed once over the corpus
+--------------------------------------------------------- */
+const STOPWORDS = new Set("a an the of to in on and or for with by is are was were be been being as that this these those it its their his her from at into than then which who whom into over under after before during between within without also than each every any all not no more most other such only own same so than too very can will just".split(" "));
+
+function tokenize(text){
+  return text.toLowerCase().replace(/[^a-z0-9\s'-]/g," ").split(/\s+/).filter(w=>w && w.length>1 && !STOPWORDS.has(w));
+}
+
+let vocabDF = {};
+let idf = {};
+let chunkVectors = [];
+let chunkTokenSets = [];
+
+function buildIndex(){
+  const N = ENTRIES.length;
+  chunkTokenSets = ENTRIES.map(e => tokenize(e.text + " " + e.title));
+
+  vocabDF = {};
+  chunkTokenSets.forEach(tokens=>{
+    const seen = new Set(tokens);
+    seen.forEach(t => vocabDF[t] = (vocabDF[t]||0)+1);
+  });
+  idf = {};
+  Object.keys(vocabDF).forEach(t=>{
+    idf[t] = Math.log((N+1)/(vocabDF[t]+1)) + 1;
+  });
+
+  chunkVectors = chunkTokenSets.map(tokens=>{
+    const tf = {};
+    tokens.forEach(t => tf[t] = (tf[t]||0)+1);
+    const vec = {};
+    let norm = 0;
+    Object.keys(tf).forEach(t=>{
+      const w = (1+Math.log(tf[t])) * idf[t];
+      vec[t] = w;
+      norm += w*w;
+    });
+    norm = Math.sqrt(norm) || 1;
+    Object.keys(vec).forEach(t => vec[t] /= norm);
+    return vec;
+  });
+}
+
+function embedQuery(text){
+  const tokens = tokenize(text);
+  const tf = {};
+  tokens.forEach(t => tf[t] = (tf[t]||0)+1);
+  const vec = {};
+  let norm = 0;
+  Object.keys(tf).forEach(t=>{
+    if(!(t in idf)) return;
+    const w = (1+Math.log(tf[t])) * idf[t];
+    vec[t] = w;
+    norm += w*w;
+  });
+  norm = Math.sqrt(norm) || 1;
+  Object.keys(vec).forEach(t => vec[t] /= norm);
+  return vec;
+}
+
+/* ---------------------------------------------------------
+   3) RETRIEVAL — plain for-loop cosine similarity, top-k
+--------------------------------------------------------- */
+function cosineSim(vecA, vecB){
+  const [small, big] = Object.keys(vecA).length < Object.keys(vecB).length ? [vecA,vecB] : [vecB,vecA];
+  let dot = 0;
+  for(const term in small){
+    if(term in big) dot += small[term]*big[term];
+  }
+  return dot;
+}
+
+function retrieveTopK(queryVec, k=5){
+  const scores = [];
+  for(let i=0; i<chunkVectors.length; i++){          // <-- the "basic for loop"
+    const sim = cosineSim(queryVec, chunkVectors[i]);
+    scores.push({ index:i, score:sim });
+  }
+  scores.sort((a,b)=> b.score - a.score);
+  return scores.slice(0, k);
+}
+
+/* ---------------------------------------------------------
+   4) GENERATION — call Gemini with retrieved chunks as context
+--------------------------------------------------------- */
+async function askHelpDesk(question, topChunks, apiKey){
+  if(!apiKey || !apiKey.trim()){
+    throw new Error("Please enter a Gemini API key first.");
+  }
+
+  const context = topChunks.map(c => {
+    const e = ENTRIES[c.index];
+    const priceLine = e.price ? ` (SKU ${e.sku}, ${e.price})` : ` (SKU ${e.sku})`;
+    return `### ${e.title}${priceLine}\n${e.text}`;
+  }).join("\n\n");
+
+  const system = `You are Deirdre, a deadpan customer service rep for Needless Goods Co., a catalog retailer selling spectacularly useless novelty items. Answer the customer's question using ONLY the catalog entries provided below. If the catalog doesn't cover it, say so plainly rather than inventing anything. Keep the deadpan, faux-corporate customer-service voice, but stay concise (2-5 sentences unless more is truly needed).\n\nCATALOG ENTRIES:\n${context}`;
+
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=${encodeURIComponent(apiKey.trim())}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      system_instruction: { parts: [{ text: system }] },
+      contents: [{ role: "user", parts: [{ text: question }] }]
+    })
+  });
+
+  if(!response.ok){
+    const errText = await response.text();
+    throw new Error(`Gemini request failed (${response.status}): ${errText}`);
+  }
+
+  const data = await response.json();
+  const parts = (data.candidates?.[0]?.content?.parts) || [];
+  const text = parts.filter(p=>p.text).map(p=>p.text).join("\n");
+  return text || "(no response text returned)";
+}
+
+/* ---------------------------------------------------------
+   5) UI wiring — catalog
+--------------------------------------------------------- */
+function renderCatalog(){
+  const grid = document.getElementById("catalogGrid");
+  grid.innerHTML = "";
+  ENTRIES.forEach(e=>{
+    const card = document.createElement("div");
+    card.className = "catalog-card";
+    card.innerHTML = `<div class="row"><div class="title">${e.title}</div><div class="price">${e.price}</div></div>
+      <div class="cat">${e.cat}${e.sku ? " · "+e.sku : ""}</div>
+      <div class="desc">${e.text}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ---------------------------------------------------------
+   6) UI wiring — coding sandbox (check / help)
+--------------------------------------------------------- */
+const BLANKS = [
+  { id:"blank1", patterns:[/embed/i, /encode/i] },
+  { id:"blank2", patterns:[/embed/i, /encode/i] },
+  { id:"blank3a", patterns:[/(?=.*sum)(?=.*\*)/is, /zip\s*\(/i, /np\.dot/i, /dot\s*\(/i] },
+  { id:"blank3b", patterns:[/(?=.*sqrt)(?=.*sum)/is, /norm\s*\(/i, /np\.linalg\.norm/i] },
+  { id:"blank3c", patterns:[/(?=.*sqrt)(?=.*sum)/is, /norm\s*\(/i, /np\.linalg\.norm/i] },
+  { id:"blank4", patterns:[/scores\s*\[\s*:\s*\d+\s*\]/i, /scores\s*\[\s*:\s*k\s*\]/i, /top_k\s*\(/i, /nlargest/i] },
+  { id:"apiKeyInput", patterns:[/.+/] },
+  { id:"blank5", patterns:[/client\.models\.generate_content/i, /generate_content/i] }
+];
+
+const STEPS = [
+  { key:"step1", blanks:["blank1"] },
+  { key:"step2", blanks:["blank2"] },
+  { key:"step3", blanks:["blank3a","blank3b","blank3c"] },
+  { key:"step4", blanks:["blank4"] },
+  { key:"step5", blanks:["apiKeyInput","blank5"] }
+];
+
+function blankSpec(id){ return BLANKS.find(b => b.id === id); }
+
+function checkStep(stepKey){
+  const step = STEPS.find(s => s.key === stepKey);
+  let stepCorrect = 0;
+  step.blanks.forEach(id=>{
+    const spec = blankSpec(id);
+    const input = document.getElementById(id);
+    const val = input.value.trim();
+    const ok = val.length > 0 && spec.patterns.some(p => p.test(val));
+    input.classList.remove("correct","incorrect");
+    void input.offsetWidth;
+    input.classList.add(ok ? "correct" : "incorrect");
+    if(ok) stepCorrect++;
+  });
+  document.getElementById(`progress-${stepKey}`).textContent = `${stepCorrect}/${step.blanks.length}`;
+  updateOverallProgress();
+}
+
+function toggleStepHints(stepKey){
+  const step = STEPS.find(s => s.key === stepKey);
+  step.blanks.forEach(id=>{
+    const hintEl = document.getElementById("hint" + id.slice(5)); // "blank3a" -> "hint3a"
+    if(hintEl) hintEl.style.display = hintEl.style.display === "block" ? "none" : "block";
+  });
+}
+
+function updateOverallProgress(){
+  let correct = 0;
+  BLANKS.forEach(b=>{
+    if(document.getElementById(b.id).classList.contains("correct")) correct++;
+  });
+  document.getElementById("sandboxProgress").textContent = `${correct}/${BLANKS.length} correct`;
+  document.getElementById("sandboxSuccess").style.display = correct === BLANKS.length ? "block" : "none";
+}
+
+/* ---------------------------------------------------------
+   7) UI wiring — chat
+--------------------------------------------------------- */
+function appendMessage(who, text, traceChunks){
+  const body = document.getElementById("chatBody");
+  const msg = document.createElement("div");
+  msg.className = "msg " + (who==="You" ? "user" : "assistant");
+  msg.innerHTML = `<div class="who">${who}</div><div class="bubble"></div>`;
+  msg.querySelector(".bubble").textContent = text;
+
+  if(traceChunks){
+    const trace = document.createElement("div");
+    trace.className = "trace";
+    const maxScore = Math.max(...traceChunks.map(c=>c.score), 0.0001);
+    trace.innerHTML = `<div class="trace-head">Retrieved before answering — cosine similarity</div>` +
+      traceChunks.map(c=>{
+        const pct = Math.round((c.score/maxScore)*100);
+        return `<div class="trace-row">
+          <div class="t-title">${ENTRIES[c.index].title}</div>
+          <div class="trace-bar-bg"><div class="trace-bar-fill" style="width:${pct}%"></div></div>
+          <div class="t-score">${c.score.toFixed(3)}</div>
+        </div>`;
+      }).join("");
+    msg.appendChild(trace);
+  }
+  body.appendChild(msg);
+  body.scrollTop = body.scrollHeight;
+}
+
+async function handleAsk(question){
+  if(!question || !question.trim()) return;
+  const btn = document.getElementById("sendBtn");
+  const input = document.getElementById("queryInput");
+  const apiKeyInput = document.getElementById("apiKeyInput");
+  const statusLine = document.getElementById("statusLine");
+  btn.disabled = true;
+  input.disabled = true;
+
+  appendMessage("You", question);
+  statusLine.textContent = "embedding query → scoring 15 listings → retrieving top 5 → calling Gemini…";
+
+  try{
+    const qVec = embedQuery(question);
+    const top = retrieveTopK(qVec, 5);
+    const apiKey = apiKeyInput ? apiKeyInput.value : "";
+    const answer = await askHelpDesk(question, top, apiKey);
+    appendMessage("Deirdre, Customer (Dis)Service", answer, top);
+  }catch(err){
+    appendMessage("Deirdre, Customer (Dis)Service", "The Help Desk call failed: " + err.message);
+  }finally{
+    statusLine.textContent = "";
+    btn.disabled = false;
+    input.disabled = false;
+    input.value = "";
+    input.focus();
+  }
+}
+
+function renderSuggestions(){
+  const examples = [
+    "Will the Chocolate Teapot survive shipping?",
+    "What's your return policy?",
+    "How much data can the USB Pet Rock store?",
+    "How fast is Rush Sloth shipping?"
+  ];
+  const box = document.getElementById("suggestions");
+  box.innerHTML = "";
+  examples.forEach(q=>{
+    const el = document.createElement("button");
+    el.className = "suggestion";
+    el.textContent = q;
+    el.addEventListener("click", ()=> handleAsk(q));
+    box.appendChild(el);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  renderCatalog();
+  buildIndex();
+  document.getElementById("vecStatus").textContent = `${ENTRIES.length} listings embedded`;
+  document.getElementById("sandboxProgress").textContent = `0/${BLANKS.length} correct`;
+  STEPS.forEach(s=>{
+    document.getElementById(`progress-${s.key}`).textContent = `0/${s.blanks.length}`;
+  });
+  renderSuggestions();
+
+  document.querySelectorAll(".sandbox-btn.check").forEach(btn=>{
+    btn.addEventListener("click", ()=> checkStep(btn.dataset.step));
+  });
+  document.querySelectorAll(".sandbox-btn.help").forEach(btn=>{
+    btn.addEventListener("click", ()=> toggleStepHints(btn.dataset.step));
+  });
+  BLANKS.forEach(b=>{
+    document.getElementById(b.id).addEventListener("input", (e)=>{
+      e.target.classList.remove("correct","incorrect");
+      updateOverallProgress();
+    });
+  });
+
+  document.getElementById("sendBtn").addEventListener("click", ()=> handleAsk(document.getElementById("queryInput").value));
+  document.getElementById("queryInput").addEventListener("keydown", (e)=>{
+    if(e.key === "Enter") handleAsk(document.getElementById("queryInput").value);
+  });
+});
+</script>
+</body>
+</html>
