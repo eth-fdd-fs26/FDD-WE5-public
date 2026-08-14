@@ -1,0 +1,307 @@
+{
+ "intl.fixed_fee": {
+  "label": "fixed fee for an international transfer outside the SEPA area",
+  "unit": "eur",
+  "op": "intl_transfer",
+  "product": null,
+  "vals": {
+   "2025Q4": 4.9,
+   "2026Q1": 4.9
+  }
+ },
+ "intl.fx_markup_pct": {
+  "label": "currency conversion margin applied to the transfer amount",
+  "unit": "pct",
+  "op": "intl_transfer",
+  "product": null,
+  "vals": {
+   "static": 1.7
+  }
+ },
+ "intl.intermediary_fee": {
+  "label": "intermediary (correspondent) bank fee",
+  "unit": "eur",
+  "op": "intl_transfer",
+  "product": null,
+  "vals": {
+   "2025Q4": 12.0,
+   "2026Q1": 15.0
+  }
+ },
+ "intl.cutoff_hour": {
+  "label": "same-day cut-off time for international transfers",
+  "unit": "count",
+  "op": "intl_transfer",
+  "product": null,
+  "vals": {
+   "static": 15
+  }
+ },
+ "sepa.fixed_fee": {
+  "label": "fee for a euro transfer inside the SEPA area",
+  "unit": "eur",
+  "op": "sepa_transfer",
+  "product": null,
+  "vals": {
+   "2025Q4": 0.5,
+   "2026Q1": 0.5
+  }
+ },
+ "sepa.instant_fee": {
+  "label": "surcharge for an instant SEPA transfer",
+  "unit": "eur",
+  "op": "sepa_transfer",
+  "product": null,
+  "vals": {
+   "2025Q4": 0.9,
+   "2026Q1": 1.2
+  }
+ },
+ "card.foreign_pct": {
+  "label": "foreign transaction surcharge on card payments",
+  "unit": "pct",
+  "op": "card_abroad",
+  "product": null,
+  "vals": {
+   "2025Q4": 1.5,
+   "2026Q1": 1.75
+  }
+ },
+ "card.atm_abroad_fixed": {
+  "label": "fixed fee for a cash withdrawal outside the euro area",
+  "unit": "eur",
+  "op": "card_abroad",
+  "product": null,
+  "vals": {
+   "static": 3.5
+  }
+ },
+ "card.atm_abroad_pct": {
+  "label": "percentage fee for a cash withdrawal outside the euro area",
+  "unit": "pct",
+  "op": "card_abroad",
+  "product": null,
+  "vals": {
+   "static": 2.0
+  }
+ },
+ "card.replacement_fee": {
+  "label": "replacement fee for a lost or stolen debit card",
+  "unit": "eur",
+  "op": "card_admin",
+  "product": null,
+  "vals": {
+   "static": 15.0
+  }
+ },
+ "card.express_delivery": {
+  "label": "express delivery surcharge for a replacement card",
+  "unit": "eur",
+  "op": "card_admin",
+  "product": null,
+  "vals": {
+   "static": 25.0
+  }
+ },
+ "classic.monthly_fee": {
+  "label": "monthly account maintenance fee for the Classic Current Account",
+  "unit": "eur",
+  "op": "account_fees",
+  "product": "classic",
+  "vals": {
+   "static": 4.5
+  }
+ },
+ "classic.free_atm": {
+  "label": "number of free domestic ATM withdrawals per month on the Classic Current Account",
+  "unit": "count",
+  "op": "atm_domestic",
+  "product": "classic",
+  "vals": {
+   "static": 5
+  }
+ },
+ "classic.atm_after": {
+  "label": "fee per domestic ATM withdrawal beyond the free allowance",
+  "unit": "eur",
+  "op": "atm_domestic",
+  "product": "classic",
+  "vals": {
+   "static": 2.0
+  }
+ },
+ "classic.overdraft_pct": {
+  "label": "annual interest rate on an arranged overdraft",
+  "unit": "pct",
+  "op": "overdraft",
+  "product": "classic",
+  "vals": {
+   "2025Q4": 9.9,
+   "2026Q1": 10.4
+  }
+ },
+ "premium.monthly_fee": {
+  "label": "monthly account maintenance fee for the Premium Current Account",
+  "unit": "eur",
+  "op": "account_fees",
+  "product": "premium",
+  "vals": {
+   "static": 12.0
+  }
+ },
+ "premium.free_atm": {
+  "label": "number of free domestic ATM withdrawals per month on the Premium Current Account",
+  "unit": "count",
+  "op": "atm_domestic",
+  "product": "premium",
+  "vals": {
+   "static": 0
+  }
+ },
+ "premium.overdraft_pct": {
+  "label": "annual interest rate on an arranged overdraft",
+  "unit": "pct",
+  "op": "overdraft",
+  "product": "premium",
+  "vals": {
+   "2025Q4": 7.9,
+   "2026Q1": 8.4
+  }
+ },
+ "student.monthly_fee": {
+  "label": "monthly account maintenance fee for the Student Current Account",
+  "unit": "eur",
+  "op": "account_fees",
+  "product": "student",
+  "vals": {
+   "static": 0.0
+  }
+ },
+ "student.free_atm": {
+  "label": "number of free domestic ATM withdrawals per month on the Student Current Account",
+  "unit": "count",
+  "op": "atm_domestic",
+  "product": "student",
+  "vals": {
+   "static": 8
+  }
+ },
+ "student.age_limit": {
+  "label": "maximum age for holding a Student Current Account",
+  "unit": "count",
+  "op": "account_admin",
+  "product": "student",
+  "vals": {
+   "static": 27
+  }
+ },
+ "savings.rate_pct": {
+  "label": "annual credit interest rate on the EasySave Savings Account",
+  "unit": "pct",
+  "op": "account_fees",
+  "product": "savings",
+  "vals": {
+   "2025Q4": 1.4,
+   "2026Q1": 1.6
+  }
+ },
+ "savings.withdrawal_notice": {
+  "label": "notice period for a withdrawal from the EasySave Savings Account",
+  "unit": "days",
+  "op": "account_admin",
+  "product": "savings",
+  "vals": {
+   "static": 30
+  }
+ },
+ "admin.paper_statement": {
+  "label": "fee for a paper account statement",
+  "unit": "eur",
+  "op": "statements",
+  "product": null,
+  "vals": {
+   "static": 3.0
+  }
+ },
+ "admin.duplicate_statement": {
+  "label": "fee for a duplicate statement older than 12 months",
+  "unit": "eur",
+  "op": "statements",
+  "product": null,
+  "vals": {
+   "static": 8.0
+  }
+ },
+ "admin.closure_fee": {
+  "label": "fee for closing an account within 12 months of opening",
+  "unit": "eur",
+  "op": "closure",
+  "product": null,
+  "vals": {
+   "static": 20.0
+  }
+ },
+ "admin.closure_notice": {
+  "label": "notice period required to close an account",
+  "unit": "days",
+  "op": "closure",
+  "product": null,
+  "vals": {
+   "static": 14
+  }
+ },
+ "dispute.window_days": {
+  "label": "deadline for disputing a card transaction",
+  "unit": "days",
+  "op": "disputes",
+  "product": null,
+  "vals": {
+   "static": 60
+  }
+ },
+ "dispute.provisional_days": {
+  "label": "time limit for crediting a provisional refund",
+  "unit": "days",
+  "op": "disputes",
+  "product": null,
+  "vals": {
+   "static": 10
+  }
+ },
+ "complaint.ack_days": {
+  "label": "deadline for acknowledging a written complaint",
+  "unit": "days",
+  "op": "complaints",
+  "product": null,
+  "vals": {
+   "static": 5
+  }
+ },
+ "complaint.resolve_days": {
+  "label": "deadline for resolving a written complaint",
+  "unit": "days",
+  "op": "complaints",
+  "product": null,
+  "vals": {
+   "static": 35
+  }
+ },
+ "standing.setup_fee": {
+  "label": "fee for setting up a standing order in a branch",
+  "unit": "eur",
+  "op": "standing_orders",
+  "product": null,
+  "vals": {
+   "static": 2.5
+  }
+ },
+ "dormancy.months": {
+  "label": "period of inactivity after which an account is treated as dormant",
+  "unit": "count",
+  "op": "dormancy",
+  "product": null,
+  "vals": {
+   "static": 24
+  }
+ }
+}

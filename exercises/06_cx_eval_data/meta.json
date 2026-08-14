@@ -1,0 +1,25 @@
+{
+ "model": "sentence-transformers/all-MiniLM-L6-v2",
+ "dim": 384,
+ "seed": 42,
+ "normalized": true,
+ "n_docs": 48,
+ "n_chunks": 721,
+ "n_questions": 25,
+ "n_answers": 42,
+ "current_version": "2026Q1",
+ "stale_version": "2025Q4",
+ "effective_dates": {
+  "2025Q4": "2025-10-01",
+  "2026Q1": "2026-01-01"
+ },
+ "n_corridor_variants": 7,
+ "judge_scores_frozen": true,
+ "nli_scores_frozen": false,
+ "answer_texts": "templated_fallback",
+ "judge_models": [
+  "google/gemma-4-26b-a4b-it",
+  "google/gemma-4-26b-a4b-it (self-extracted)",
+  "google/gemma-4-26b-a4b-it (v2 prompt)"
+ ]
+}

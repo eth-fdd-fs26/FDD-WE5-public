@@ -1,0 +1,4174 @@
+[
+ {
+  "qid": "q01",
+  "answer_id": "q01_a1",
+  "text": "Sending €2,000.00 outside the SEPA area costs €53.90 in total: a fixed transfer fee of €4.90, a currency conversion margin of 1.7% on the amount converted (€34.00), and an intermediary bank fee of €15.00.",
+  "context_chunk_ids": [
+   "c_0025",
+   "c_0186",
+   "c_0169"
+  ],
+  "claims": [
+   "the fixed transfer fee is €4.90",
+   "the conversion margin is 1.7%",
+   "the intermediary bank fee is €15.00",
+   "the total is €53.90"
+  ],
+  "claim_support": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "claim_cited": [
+   "c_0025",
+   "c_0186",
+   "c_0169",
+   "c_0169"
+  ],
+  "claim_kind": [
+   "stated",
+   "stated",
+   "stated",
+   "derived"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "all three components present"
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9922,
+    0.9868,
+    0.9911,
+    0.0055
+   ],
+   "claim_entailment_mean": [
+    0.0399,
+    0.0443,
+    0.0399,
+    0.0004
+   ],
+   "n_premise_sentences": 25,
+   "claim_entailment_doclevel": [
+    0.0139,
+    0.0159,
+    0.0117,
+    0.0135
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "All components of the calculation are explicitly stated in the provided source passages: the fixed fee in [c_0025], the conversion margin in [c_0186], and the intermediary fee in [c_0169]."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer is identical in substance and accuracy to the reference answer, providing the same total cost and detailed breakdown."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "Sending money to Poland is a transfer outside the SEPA area.",
+      "The fixed transfer fee for a transfer outside the SEPA area is €4.90.",
+      "A currency conversion margin of 1.7% applies when the payment is converted from euro.",
+      "A 1.7% conversion margin on €2,000.00 is €34.00.",
+      "An intermediary bank fee of €15.00 applies to payments outside the SEPA area settled through a correspondent institution.",
+      "The total cost to send €2,000.00 to Poland is €53.90."
+     ],
+     "supported": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "All components of the calculation are directly supported by the provided passages regarding SEPA area transfers, conversion margins, and intermediary fees."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer is identical in substance and accuracy to the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The total cost is correctly calculated using the fixed fee of €4.90 from [c_0025], the 1.7% conversion margin from [c_0186], and the €15.00 intermediary fee from [c_0169]."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer is identical to the reference answer in terms of factual accuracy and detail."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q01",
+  "answer_id": "q01_a2",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. Sending money to Poland is charged a currency conversion margin of 1.7%, applied to the amount converted from euro. On a transfer of €2,000.00 that comes to €34.00, which is deducted at the moment the payment is processed. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0186",
+   "c_0198"
+  ],
+  "claims": [
+   "the currency conversion margin is 1.7%",
+   "the margin on a €2,000.00 transfer is €34.00"
+  ],
+  "claim_support": [
+   1,
+   1
+  ],
+  "claim_cited": [
+   "c_0186",
+   "c_0198"
+  ],
+  "claim_kind": [
+   "stated",
+   "derived"
+  ],
+  "human": {
+   "correct": 0,
+   "grounded": 1,
+   "complete": 0.33,
+   "note": "THE COLD OPEN. Every claim is supported by the passages actually retrieved; the answer is still wrong, because the fixed fee and the intermediary fee were never retrieved -- the page merely says where they are. Faithfulness scores this 1.0."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.993,
+    0.005
+   ],
+   "claim_entailment_mean": [
+    0.1802,
+    0.0015
+   ],
+   "n_premise_sentences": 11,
+   "claim_entailment_doclevel": [
+    0.0056,
+    0.0024
+   ]
+  },
+  "quadrant": "wrong_grounded",
+  "style": "verbose",
+  "failure": "retriever_missed_evidence",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "Both claims are directly supported by the provided source passages regarding the margin percentage and the mathematical calculation for a 2000 euro transfer."
+    },
+    "correctness": {
+     "score": 2,
+     "correct": 0,
+     "rationale": "The answer only identifies the currency conversion margin and fails to include the fixed fee and intermediary bank fee required to reach the total cost mentioned in the reference."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "Sending money to Poland is charged a currency conversion margin of 1.7% applied to the amount converted from euro.",
+      "On a transfer of €2,000.00, the currency conversion margin comes to €34.00.",
+      "The €34.00 margin is the total cost to send €2,000.00 to Poland."
+     ],
+     "supported": [
+      1,
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "While the calculation of the 1.7% margin is correct, the answer incorrectly implies this is the total cost, omitting the fixed transfer fee and potential correspondent charges mentioned in the source."
+    },
+    "correctness": {
+     "score": 2,
+     "correct": 0,
+     "rationale": "The answer only identifies the currency conversion margin and fails to include the fixed fee and the intermediary bank fee mentioned in the reference."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly calculates the 1.7% currency conversion margin on 2000 euros as 34 euros based on the provided rate."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 2,
+     "rationale": "The answer only identifies the currency conversion margin and fails to include the fixed fee and the intermediary bank fee mentioned in the reference."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q01",
+  "answer_id": "q01_a3",
+  "text": "The total is €50.90: €4.90 fixed, 1.7% conversion margin (€34.00), and an intermediary bank fee of €12.00 per payment.",
+  "context_chunk_ids": [
+   "c_0025",
+   "c_0186",
+   "c_0153"
+  ],
+  "claims": [
+   "the fixed transfer fee is €4.90",
+   "the conversion margin is 1.7%",
+   "the intermediary bank fee is €12.00",
+   "the total is €50.90"
+  ],
+  "claim_support": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "claim_cited": [
+   "c_0025",
+   "c_0186",
+   "c_0153",
+   "c_0153"
+  ],
+  "claim_kind": [
+   "stated",
+   "stated",
+   "stated",
+   "derived"
+  ],
+  "human": {
+   "correct": 0,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Faithful to a superseded document. Perfect faithfulness, perfect citation, wrong answer. Only the reference answer and the ingestion scan can catch this."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9922,
+    0.9868,
+    0.9901,
+    0.0039
+   ],
+   "claim_entailment_mean": [
+    0.04,
+    0.0443,
+    0.0398,
+    0.0004
+   ],
+   "n_premise_sentences": 25,
+   "claim_entailment_doclevel": [
+    0.012,
+    0.0154,
+    0.0126,
+    0.013
+   ]
+  },
+  "quadrant": "wrong_grounded",
+  "style": "terse",
+  "failure": "stale_index",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "All components of the calculation are explicitly stated in the provided passages for transfers outside the SEPA area."
+    },
+    "correctness": {
+     "score": 3,
+     "correct": 0,
+     "rationale": "The answer provides an incorrect total and an incorrect intermediary bank fee compared to the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The fixed transfer fee for sending money to Poland is €4.90.",
+      "The currency conversion margin is 1.7% of the converted amount.",
+      "A 1.7% conversion margin on 2000 euros is €34.00.",
+      "There is an intermediary bank fee of €12.00 per payment.",
+      "The total cost to send 2000 euros to Poland is €50.90."
+     ],
+     "supported": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "All components of the calculation are directly supported by the provided passages regarding international transfer fees, conversion margins, and intermediary bank fees."
+    },
+    "correctness": {
+     "score": 3,
+     "correct": 0,
+     "rationale": "The answer provides a different total cost and a different intermediary bank fee compared to the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The calculation is mathematically correct based on the provided figures: a EUR 4.90 fixed fee, a 1.7% margin on EUR 2000 (EUR 34.00), and a EUR 12.00 intermediary fee."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 2,
+     "rationale": "The answer provides an incorrect total amount and an incorrect intermediary bank fee compared to the reference."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q01",
+  "answer_id": "q01_a4",
+  "text": "Transfers of this size normally cost somewhere in the region of €25.00, made up of a handling charge and the exchange spread. The exact figure depends on the destination bank.",
+  "context_chunk_ids": [
+   "c_0186"
+  ],
+  "claims": [
+   "the transfer costs about EUR 25.00",
+   "the cost is made up of a handling charge and the exchange spread"
+  ],
+  "claim_support": [
+   0,
+   0
+  ],
+  "claim_cited": [
+   "c_0186",
+   "c_0186"
+  ],
+  "claim_kind": [
+   "derived",
+   "stated"
+  ],
+  "human": {
+   "correct": 0,
+   "grounded": 0,
+   "complete": 0.0,
+   "note": "Invented figure. Nothing in the context supports it."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.0002,
+    0.0033
+   ],
+   "claim_entailment_mean": [
+    0.0002,
+    0.0008
+   ],
+   "n_premise_sentences": 8,
+   "claim_entailment_doclevel": [
+    0.0002,
+    0.0011
+   ]
+  },
+  "quadrant": "wrong_ungrounded",
+  "style": "terse",
+  "failure": "llm_invented",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "The source passage does not mention a specific cost of 25.00 euros or the specific terms 'handling charge' and 'exchange spread'."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides a generic estimate that contradicts the specific breakdown and total cost provided in the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "Transfers of 2000 euros to Poland normally cost somewhere in the region of €25.00",
+      "The cost is made up of a handling charge and the exchange spread",
+      "The exact figure depends on the destination bank"
+     ],
+     "supported": [
+      0,
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "The source passages do not provide any specific monetary amounts or estimated costs for a 2000 euro transfer."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides a generic estimate that contradicts the specific breakdown and total cost provided in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 1,
+     "rationale": "The source passages do not provide a specific fixed transfer fee or a total cost estimate of €25.00 for a 2000 euro transfer."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 1,
+     "rationale": "The answer provides a generic estimate that contradicts the specific breakdown and total cost provided in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q01",
+  "answer_id": "q01_a5",
+  "text": "The total comes to €53.90 for a €2,000.00 transfer.",
+  "context_chunk_ids": [
+   "c_0169"
+  ],
+  "claims": [
+   "the total is €53.90"
+  ],
+  "claim_support": [
+   0
+  ],
+  "claim_cited": [
+   "c_0169"
+  ],
+  "claim_kind": [
+   "derived"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 0,
+   "complete": 1.0,
+   "note": "Right number, but the retrieved context does not contain it. Got lucky; will not stay lucky."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.0018
+   ],
+   "claim_entailment_mean": [
+    0.0004
+   ],
+   "n_premise_sentences": 7,
+   "claim_entailment_doclevel": [
+    0.0016
+   ]
+  },
+  "quadrant": "correct_ungrounded",
+  "style": "terse",
+  "failure": "lucky_guess",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      0
+     ],
+     "score": 1,
+     "rationale": "The source passage does not provide the total cost for a 2000 euro transfer, nor does it specify the fixed transfer fee required to calculate it."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the total cost provided in the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The total cost to send 2000 euros to Poland is €53.90."
+     ],
+     "supported": [
+      0
+     ],
+     "score": 1,
+     "rationale": "The source passages do not provide a total cost for a 2000 euro transfer, nor do they specify the fixed transfer fee required to calculate such a total."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the total cost provided in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 1,
+     "rationale": "The source passages do not provide the fixed transfer fee or any information regarding the total cost for a 2000 euro transfer, making the figure of €53.90 unsupported."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the total cost provided in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q01",
+  "answer_id": "q01_a6",
+  "text": "The charges are €4.90 fixed, a conversion margin of 1.7%, and €15.00 for the intermediary bank, giving €53.90 in total [source: schedule of fees].",
+  "context_chunk_ids": [
+   "c_0025",
+   "c_0186",
+   "c_0169"
+  ],
+  "claims": [
+   "the fixed transfer fee is €4.90",
+   "the conversion margin is 1.7%",
+   "the intermediary bank fee is €15.00"
+  ],
+  "claim_support": [
+   1,
+   1,
+   1
+  ],
+  "claim_cited": [
+   "c_0025",
+   "c_0025",
+   "c_0025"
+  ],
+  "claim_kind": [
+   "stated",
+   "stated",
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Correct and fully supported, but two of three claims cite the fee schedule, which does not state them. Faithfulness 1.0, citation precision 0.33."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9922,
+    0.9868,
+    0.9911
+   ],
+   "claim_entailment_mean": [
+    0.0399,
+    0.0443,
+    0.0399
+   ],
+   "n_premise_sentences": 25,
+   "claim_entailment_doclevel": [
+    0.0139,
+    0.0159,
+    0.0117
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "miscited",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "All three claims are directly stated in the provided source passages regarding transfers outside the SEPA area."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer provides the exact same total cost and breakdown of fees as the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The fixed transfer fee is €4.90.",
+      "There is a currency conversion margin of 1.7%.",
+      "There is an intermediary bank fee of €15.00.",
+      "The total cost is €53.90."
+     ],
+     "supported": [
+      1,
+      1,
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "While the individual fee components are supported by the passages, the total calculation of €53.90 is mathematically incorrect based on the provided figures (4.90 + 15.00 + 1.7% of 2000 = 53.90 is actually 4.90 + 15.00 + 34.00 = 53.90, but the math in the answer is actually correct, however, the source does not explicitly state the total cost for this specific amount)."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer provides all the correct components and the total cost specified in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The total of €53.90 is correctly calculated from the €4.90 fixed fee, the 1.7% conversion margin on €2000 (€34.00), and the €15.00 intermediary fee."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer provides all the specific components and the total cost mentioned in the reference answer accurately."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q03",
+  "answer_id": "q03_a1",
+  "text": "A €300.00 withdrawal outside the euro area costs €9.50: €3.50 fixed plus 2% of the amount (€6.00).",
+  "context_chunk_ids": [
+   "c_0303",
+   "c_0316"
+  ],
+  "claims": [
+   "the fixed fee is €3.50",
+   "the percentage fee is 2%",
+   "the total is €9.50"
+  ],
+  "claim_support": [
+   1,
+   1,
+   1
+  ],
+  "claim_cited": [
+   "c_0303",
+   "c_0316",
+   "c_0316"
+  ],
+  "claim_kind": [
+   "stated",
+   "stated",
+   "derived"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9897,
+    0.7685,
+    0.0029
+   ],
+   "claim_entailment_mean": [
+    0.0661,
+    0.0517,
+    0.0003
+   ],
+   "n_premise_sentences": 15,
+   "claim_entailment_doclevel": [
+    0.0044,
+    0.005,
+    0.0032
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "The passages explicitly state a fixed fee of €3.50 and a 2% variable component for withdrawals outside the euro area, which totals €9.50 for a €300 withdrawal."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer is identical to the reference answer in both value and calculation logic."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "A withdrawal of 300 euros outside the euro area incurs a fixed fee of €3.50.",
+      "A withdrawal of 300 euros outside the euro area incurs a variable fee of 2% of the amount.",
+      "The variable fee for a 300 euro withdrawal is €6.00.",
+      "The total cost for a 300 euro withdrawal outside the euro area is €9.50."
+     ],
+     "supported": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "The passages explicitly state a €3.50 fixed fee and a 2% variable component for withdrawals outside the euro area, which mathematically totals €9.50 for a €300 withdrawal."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer is identical to the reference answer in its calculation and final result."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly calculates the total fee by adding the €3.50 fixed fee from [c_0303] to the 2% variable fee of €6.00 derived from [c_0316]."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer provides the exact same total fee and the correct breakdown of fixed and percentage components as the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q03",
+  "answer_id": "q03_a2",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. Withdrawals made outside the euro area attract a fixed charge of €3.50 per withdrawal. This is applied at the time of the transaction and shown on your statement as a single combined entry. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0303"
+  ],
+  "claims": [
+   "the fixed fee is €3.50",
+   "the charge appears as a single combined entry"
+  ],
+  "claim_support": [
+   1,
+   1
+  ],
+  "claim_cited": [
+   "c_0303",
+   "c_0303"
+  ],
+  "claim_kind": [
+   "stated",
+   "stated"
+  ],
+  "human": {
+   "correct": 0,
+   "grounded": 1,
+   "complete": 0.5,
+   "note": "Percentage component never retrieved."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9897,
+    0.0431
+   ],
+   "claim_entailment_mean": [
+    0.1101,
+    0.0121
+   ],
+   "n_premise_sentences": 9,
+   "claim_entailment_doclevel": [
+    0.0041,
+    0.0042
+   ]
+  },
+  "quadrant": "wrong_grounded",
+  "style": "verbose",
+  "failure": "retriever_missed_evidence",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "Both claims are explicitly stated in the provided answer text which is derived from the source context."
+    },
+    "correctness": {
+     "score": 2,
+     "correct": 0,
+     "rationale": "The answer only provides the fixed fee and fails to include the 2% variable charge required to reach the correct total."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "Withdrawals made outside the euro area attract a fixed charge of €3.50 per withdrawal.",
+      "This is applied at the time of the transaction.",
+      "This is shown on your statement as a single combined entry."
+     ],
+     "supported": [
+      1,
+      0,
+      0
+     ],
+     "score": 2,
+     "rationale": "The source confirms the fixed fee for withdrawals outside the euro area, but does not mention when it is applied or how it appears on the statement."
+    },
+    "correctness": {
+     "score": 2,
+     "correct": 0,
+     "rationale": "The answer provides the fixed fee but fails to include the 2% percentage charge required to reach the correct total."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the fixed fee of €3.50 for withdrawals outside the euro area as stated in the source passage."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 2,
+     "rationale": "The answer correctly identifies the fixed fee but fails to include the 2% percentage charge required to reach the total amount specified in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q17",
+  "answer_id": "q17_a1",
+  "text": "It is €15.00 under the schedule in force.",
+  "context_chunk_ids": [
+   "c_0169"
+  ],
+  "claims": [
+   "the value is €15.00"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0169"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9679
+   ],
+   "claim_entailment_mean": [
+    0.1384
+   ],
+   "n_premise_sentences": 7,
+   "claim_entailment_doclevel": [
+    0.0101
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that an intermediary bank fee of EUR 15.00 is deducted per payment for settlements outside the SEPA area."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the amount, though it lacks the specific effective date mentioned in the reference."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The intermediary bank fee on a payment outside the SEPA area is €15.00.",
+      "This fee is under the schedule in force."
+     ],
+     "supported": [
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "The source confirms the fee amount is EUR 15.00, but it does not explicitly mention a 'schedule in force'."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the fee amount and acknowledges the applicable schedule, even though it does not specify the exact effective date mentioned in the reference."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The source passage explicitly states that an intermediary bank fee of EUR 15.00 is deducted for payments outside the SEPA area."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the fee amount and accurately reflects the context of the current schedule."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q17",
+  "answer_id": "q17_a2",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. According to the schedule of fees and charges the applicable figure is €12.00. This is applied per instruction and is separate from any other charge that may arise. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0153"
+  ],
+  "claims": [
+   "the value is €12.00"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0153"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 0,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Quoted a superseded schedule."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.963
+   ],
+   "claim_entailment_mean": [
+    0.1377
+   ],
+   "n_premise_sentences": 7,
+   "claim_entailment_doclevel": [
+    0.01
+   ]
+  },
+  "quadrant": "wrong_grounded",
+  "style": "verbose",
+  "failure": "stale_index",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that an intermediary bank fee of EUR 12.00 is deducted per payment for transactions outside the SEPA area."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides an incorrect fee amount of €12.00 instead of the reference amount of €15.00."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The intermediary bank fee for a payment outside the SEPA area is €12.00.",
+      "The fee is applied per instruction.",
+      "The fee is separate from any other charge that may arise."
+     ],
+     "supported": [
+      1,
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "All factual claims regarding the fee amount, application per instruction, and separation from other charges are directly supported by the source passage."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides an incorrect fee amount of €12.00 instead of the reference amount of €15.00."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the EUR 12.00 fee and its application per instruction as stated in the source passage."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 1,
+     "rationale": "The answer provides an incorrect fee amount of €12.00 instead of the reference amount of €15.00."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q18",
+  "answer_id": "q18_a1",
+  "text": "It is €1.20 under the schedule in force.",
+  "context_chunk_ids": [
+   "c_0025"
+  ],
+  "claims": [
+   "the value is €1.20"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0025"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9822
+   ],
+   "claim_entailment_mean": [
+    0.0988
+   ],
+   "n_premise_sentences": 10,
+   "claim_entailment_doclevel": [
+    0.0057
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that an additional surcharge of EUR 1.20 applies per instruction for instant euro payments."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer provides the correct amount specified in the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The surcharge for an instant euro transfer is €1.20."
+     ],
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that an additional surcharge of EUR 1.20 applies per instruction for instant euro payments."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer provides the correct amount specified in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The passage explicitly states that an additional surcharge of EUR 1.20 applies per instruction for instant euro payments."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer provides the correct amount specified in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q18",
+  "answer_id": "q18_a2",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. According to the schedule of fees and charges the applicable figure is €0.90. This is applied per instruction and is separate from any other charge that may arise. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0004"
+  ],
+  "claims": [
+   "the value is €0.90"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0004"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 0,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Quoted a superseded schedule."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9884
+   ],
+   "claim_entailment_mean": [
+    0.099
+   ],
+   "n_premise_sentences": 10,
+   "claim_entailment_doclevel": [
+    0.0067
+   ]
+  },
+  "quadrant": "wrong_grounded",
+  "style": "verbose",
+  "failure": "stale_index",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that an additional surcharge of EUR 0.90 applies per instruction for instant euro payments."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides an incorrect amount of €0.90 instead of the reference value of €1.20."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The surcharge for an instant euro transfer is €0.90.",
+      "The surcharge is applied per instruction.",
+      "The surcharge is separate from any other charge that may arise."
+     ],
+     "supported": [
+      1,
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "The answer accurately reflects the specific surcharge amount, frequency, and additive nature described in the source passage."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides an incorrect amount of €0.90 instead of the reference amount of €1.20."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the EUR 0.90 surcharge per instruction for instant euro payments as stated in the source passage."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 1,
+     "rationale": "The answer provides an incorrect amount of €0.90 instead of the reference amount of €1.20."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q19",
+  "answer_id": "q19_a1",
+  "text": "It is 1.75% under the schedule in force.",
+  "context_chunk_ids": [
+   "c_0025"
+  ],
+  "claims": [
+   "the value is 1.75%"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0025"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9231
+   ],
+   "claim_entailment_mean": [
+    0.093
+   ],
+   "n_premise_sentences": 10,
+   "claim_entailment_doclevel": [
+    0.0088
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that a card payment in a currency other than euro carries a foreign transaction surcharge of 1.75%."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the specific percentage mentioned in the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "A surcharge of 1.75% applies when paying by card in a foreign currency.",
+      "The surcharge is under the schedule in force."
+     ],
+     "supported": [
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "The percentage amount is explicitly stated in the text, but the source passage does not mention a 'schedule in force'."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the specific percentage mentioned in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The source passage explicitly states that a card payment settled in a currency other than euro carries a foreign transaction surcharge of 1.75%."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the specific percentage mentioned in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q19",
+  "answer_id": "q19_a2",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. According to the schedule of fees and charges the applicable figure is 1.5%. This is applied per instruction and is separate from any other charge that may arise. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0004"
+  ],
+  "claims": [
+   "the value is 1.5%"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0004"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 0,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Quoted a superseded schedule."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9431
+   ],
+   "claim_entailment_mean": [
+    0.0947
+   ],
+   "n_premise_sentences": 10,
+   "claim_entailment_doclevel": [
+    0.0028
+   ]
+  },
+  "quadrant": "wrong_grounded",
+  "style": "verbose",
+  "failure": "stale_index",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that card payments in foreign currency carry a surcharge of 1.5% of the transaction amount."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides an incorrect percentage of 1.5% instead of the reference answer's 1.75%."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The applicable surcharge for a card payment in a foreign currency is 1.5%.",
+      "The surcharge is applied per instruction.",
+      "The surcharge is separate from any other charge that may arise."
+     ],
+     "supported": [
+      1,
+      0,
+      0
+     ],
+     "score": 2,
+     "rationale": "The source confirms the 1.5% rate, but does not specify that it is applied 'per instruction' or that it is 'separate from any other charge'."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides an incorrect percentage of 1.5% instead of the reference answer's 1.75%."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the 1.5% foreign transaction surcharge mentioned in the source passage."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 1,
+     "rationale": "The answer provides an incorrect percentage of 1.5% instead of the reference answer's 1.75%."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q20",
+  "answer_id": "q20_a1",
+  "text": "It is 10.4% under the schedule in force.",
+  "context_chunk_ids": [
+   "c_0025"
+  ],
+  "claims": [
+   "the value is 10.4%"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0025"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9793
+   ],
+   "claim_entailment_mean": [
+    0.0981
+   ],
+   "n_premise_sentences": 10,
+   "claim_entailment_doclevel": [
+    0.0021
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that interest on an arranged overdraft accrues at an annual rate of 10.4%."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer provides the correct numerical value specified in the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The overdraft interest rate is 10.4% under the schedule in force."
+     ],
+     "supported": [
+      0
+     ],
+     "score": 1,
+     "rationale": "The source passage specifies an interest rate of 10.4% for an arranged overdraft, but it does not mention a 'Classic account' or a 'schedule in force'."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer provides the correct numerical value specified in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 2,
+     "rationale": "The source passages do not mention a 'Classic account', so it cannot be verified that this specific rate applies to it."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer provides the correct numerical value and adds context that is consistent with the reference."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q20",
+  "answer_id": "q20_a2",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. According to the schedule of fees and charges the applicable figure is 9.9%. This is applied per instruction and is separate from any other charge that may arise. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0004"
+  ],
+  "claims": [
+   "the value is 9.9%"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0004"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 0,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Quoted a superseded schedule."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9775
+   ],
+   "claim_entailment_mean": [
+    0.0979
+   ],
+   "n_premise_sentences": 10,
+   "claim_entailment_doclevel": [
+    0.0012
+   ]
+  },
+  "quadrant": "wrong_grounded",
+  "style": "verbose",
+  "failure": "stale_index",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that interest on an arranged overdraft accrues at an annual rate of 9.9%."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides an incorrect interest rate of 9.9% instead of the reference answer's 10.4%."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The overdraft interest rate is 9.9%.",
+      "The interest is applied per instruction.",
+      "The interest is separate from any other charge that may arise."
+     ],
+     "supported": [
+      1,
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "While the interest rate of 9.9% is supported, the claims regarding it being applied 'per instruction' and being 'separate from any other charge' are not supported by the text, which states interest accrues on the balance and is calculated daily."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides an incorrect interest rate of 9.9% instead of the reference answer's 10.4%."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 2,
+     "rationale": "While the interest rate of 9.9% is correct, the answer incorrectly states that this rate is 'applied per instruction', whereas the source states interest accrues on the overdrawn balance."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 1,
+     "rationale": "The answer provides an incorrect interest rate of 9.9% instead of the reference answer's 10.4%."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q09",
+  "answer_id": "q09_a1",
+  "text": "It is €12.00.",
+  "context_chunk_ids": [
+   "c_0062"
+  ],
+  "claims": [
+   "the value is €12.00"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0062"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9779
+   ],
+   "claim_entailment_mean": [
+    0.1223
+   ],
+   "n_premise_sentences": 8,
+   "claim_entailment_doclevel": [
+    0.0012
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The passage explicitly states that the monthly account maintenance fee is EUR 12.00."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the numerical value and currency specified in the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The monthly fee on the Premium account is €12.00."
+     ],
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that the monthly account maintenance fee for the Premium Current Account is EUR 12.00."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the numerical value and currency specified in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The passage explicitly states that the monthly account maintenance fee for the Premium Current Account is EUR 12.00."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the specific amount mentioned in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q11",
+  "answer_id": "q11_a1",
+  "text": "It is 1.6%.",
+  "context_chunk_ids": [
+   "c_0135"
+  ],
+  "claims": [
+   "the value is 1.6%"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0135"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9187
+   ],
+   "claim_entailment_mean": [
+    0.1543
+   ],
+   "n_premise_sentences": 6,
+   "claim_entailment_doclevel": [
+    0.0032
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states the account earns credit interest at an annual rate of 1.6%."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the interest rate, although it omits the calculation and payment frequency details provided in the reference."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The EasySave account pays 1.6% interest."
+     ],
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states the account earns credit interest at an annual rate of 1.6%."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the interest rate, although it omits the calculation and payment frequency details provided in the reference."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The passage explicitly states that the account earns credit interest at an annual rate of 1.6%."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 4,
+     "rationale": "The answer correctly identifies the interest rate but omits the calculation and payment frequency details."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q12",
+  "answer_id": "q12_a1",
+  "text": "It is €3.00.",
+  "context_chunk_ids": [
+   "c_0027"
+  ],
+  "claims": [
+   "the value is €3.00"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0027"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9928
+   ],
+   "claim_entailment_mean": [
+    0.0765
+   ],
+   "n_premise_sentences": 13,
+   "claim_entailment_doclevel": [
+    0.0077
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that a paper statement issued on request costs EUR 3.00."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the price mentioned in the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "A paper statement costs €3.00."
+     ],
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that a paper statement issued on request costs EUR 3.00."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the price, although it omits the frequency 'per statement' which is implied."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The source passage explicitly states that a paper statement issued on request costs EUR 3.00."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the price mentioned in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q13",
+  "answer_id": "q13_a1",
+  "text": "It is €2.50.",
+  "context_chunk_ids": [
+   "c_0027"
+  ],
+  "claims": [
+   "the value is €2.50"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0027"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9959
+   ],
+   "claim_entailment_mean": [
+    0.0768
+   ],
+   "n_premise_sentences": 13,
+   "claim_entailment_doclevel": [
+    0.0087
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The passage explicitly states that setting up a standing order in a branch costs EUR 2.50."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the specific charge requested, although it omits the additional context regarding free digital options provided in the reference."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The charge for setting up a standing order at the counter is €2.50."
+     ],
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The passage states that setting up a standing order in a branch costs EUR 2.50, which is synonymous with a counter service."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the specific charge requested, although it omits the additional context regarding free digital options provided in the reference."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The passage states that setting up a standing order in a branch costs EUR 2.50, which is synonymous with setting it up at the counter."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the specific charge requested by the question."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q14",
+  "answer_id": "q14_a1",
+  "text": "It is 24.",
+  "context_chunk_ids": [
+   "c_0463"
+  ],
+  "claims": [
+   "the value is 24"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0463"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.4084
+   ],
+   "claim_entailment_mean": [
+    0.0293
+   ],
+   "n_premise_sentences": 14,
+   "claim_entailment_doclevel": [
+    0.0016
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states an account is treated as dormant after 24 months without a customer-initiated transaction."
+    },
+    "correctness": {
+     "score": 3,
+     "correct": 1,
+     "rationale": "The answer provides the correct numerical value but lacks the necessary context regarding the condition of no customer-initiated transactions."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "An account is treated as dormant after 24 months without a customer-initiated transaction."
+     ],
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states an account is treated as dormant after 24 months without a customer-initiated transaction."
+    },
+    "correctness": {
+     "score": 3,
+     "correct": 0,
+     "rationale": "The answer provides the correct number but fails to include the necessary unit of time (months) or the specific condition required for dormancy."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The passage explicitly states an account is treated as dormant after 24 months without a customer-initiated transaction."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 2,
+     "rationale": "The answer provides the correct number but fails to include the necessary context regarding the lack of customer-initiated transactions."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q16",
+  "answer_id": "q16_a1",
+  "text": "It is 30 days.",
+  "context_chunk_ids": [
+   "c_0410"
+  ],
+  "claims": [
+   "the value is 30 days"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0410"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.4977
+   ],
+   "claim_entailment_mean": [
+    0.0505
+   ],
+   "n_premise_sentences": 10,
+   "claim_entailment_doclevel": [
+    0.0048
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that a withdrawal requires 30 days notice."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer is factually correct and provides the exact information required by the reference."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "A withdrawal requires 30 days notice."
+     ],
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that a withdrawal requires 30 days notice."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer is factually correct and directly addresses the question."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The source passage explicitly states that a withdrawal requires 30 days notice."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer is factually correct and directly addresses the question."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q11",
+  "answer_id": "q11_a2",
+  "text": "The account credits 1.6% each year on the balance you hold, worked out day by day and paid every three months.",
+  "context_chunk_ids": [
+   "c_0135"
+  ],
+  "claims": [
+   "the annual rate is 1.6%",
+   "interest is calculated daily and paid quarterly"
+  ],
+  "claim_support": [
+   1,
+   1
+  ],
+  "claim_cited": [
+   "c_0135",
+   "c_0135"
+  ],
+  "claim_kind": [
+   "stated",
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Pure paraphrase of the source. Lexical-overlap scoring under-rates this; used in Act 5 to retire word overlap as a faithfulness proxy."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9912,
+    0.9815
+   ],
+   "claim_entailment_mean": [
+    0.1654,
+    0.1637
+   ],
+   "n_premise_sentences": 6,
+   "claim_entailment_doclevel": [
+    0.0017,
+    0.0012
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "Both claims are directly stated in the source passage regarding the interest rate, calculation frequency, and payment schedule."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer accurately conveys all components of the reference answer using synonymous phrasing."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The account credits 1.6% interest each year",
+      "Interest is worked out day by day",
+      "Interest is paid every three months"
+     ],
+     "supported": [
+      1,
+      1,
+      1
+     ],
+     "score": 5,
+     "rationale": "All claims regarding the interest rate, calculation frequency, and payment frequency are directly supported by the source text."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer accurately conveys all components of the reference answer using synonymous phrasing."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer accurately reflects the annual rate, daily calculation, and quarterly payment frequency stated in the source passage."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer accurately conveys all key components of the reference answer using synonymous phrasing."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q09",
+  "answer_id": "q09_a9",
+  "text": "The Premium Current Account costs €12.00 a month, and the fee is waived in any month where the average balance stays above EUR 5,000.",
+  "context_chunk_ids": [
+   "c_0062"
+  ],
+  "claims": [
+   "the monthly fee is €12.00",
+   "the fee is waived above an average balance of EUR 5,000"
+  ],
+  "claim_support": [
+   1,
+   0
+  ],
+  "claim_cited": [
+   "c_0062",
+   "c_0062"
+  ],
+  "claim_kind": [
+   "stated",
+   "derived"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 0,
+   "complete": 1.0,
+   "note": "Correctly quotes the retrieved passage, then keeps going past it. Right answer, invented extras — the failure a faithfulness metric exists to catch."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9855,
+    0.0005
+   ],
+   "claim_entailment_mean": [
+    0.1234,
+    0.0002
+   ],
+   "n_premise_sentences": 8,
+   "claim_entailment_doclevel": [
+    0.0005,
+    0.0002
+   ]
+  },
+  "quadrant": "correct_ungrounded",
+  "style": "terse",
+  "failure": "unsupported_elaboration",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "The monthly fee amount is explicitly stated, but the passage contains no information regarding a fee waiver based on account balance."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the monthly fee and provides additional relevant context found in the source material."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The Premium Current Account costs €12.00 a month.",
+      "The fee is waived in any month where the average balance stays above EUR 5,000."
+     ],
+     "supported": [
+      1,
+      0
+     ],
+     "score": 2,
+     "rationale": "The monthly fee amount is correctly stated, but the source passage contains no information regarding a fee waiver based on account balance."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the monthly fee and provides additional relevant context found in the reference."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 2,
+     "rationale": "The passage does not mention a fee waiver for maintaining an average balance above EUR 5,000."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the monthly fee and provides additional relevant context found in the source material."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q12",
+  "answer_id": "q12_a9",
+  "text": "A paper statement is €3.00. Statements are posted within two business days and the first one each year is free.",
+  "context_chunk_ids": [
+   "c_0027"
+  ],
+  "claims": [
+   "a paper statement costs €3.00",
+   "statements are posted within two business days",
+   "the first paper statement each year is free"
+  ],
+  "claim_support": [
+   1,
+   0,
+   0
+  ],
+  "claim_cited": [
+   "c_0027",
+   "c_0027",
+   "c_0027"
+  ],
+  "claim_kind": [
+   "stated",
+   "stated",
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 0,
+   "complete": 1.0,
+   "note": "Correctly quotes the retrieved passage, then keeps going past it. Right answer, invented extras — the failure a faithfulness metric exists to catch."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9931,
+    0.0011,
+    0.0023
+   ],
+   "claim_entailment_mean": [
+    0.0774,
+    0.0002,
+    0.0003
+   ],
+   "n_premise_sentences": 13,
+   "claim_entailment_doclevel": [
+    0.0059,
+    0.0067,
+    0.0005
+   ]
+  },
+  "quadrant": "correct_ungrounded",
+  "style": "terse",
+  "failure": "unsupported_elaboration",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      0,
+      0
+     ],
+     "score": 3,
+     "rationale": "The cost of a paper statement is explicitly stated, but the delivery timeframe and the free annual statement claim are not mentioned in the source passages."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the price of €3.00 and provides additional relevant context."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "A paper statement is €3.00.",
+      "Statements are posted within two business days.",
+      "The first one each year is free."
+     ],
+     "supported": [
+      1,
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "The source confirms the cost of a paper statement but provides no information regarding the delivery timeframe or a free annual statement policy."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the price stated in the reference answer and provides additional relevant context."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 2,
+     "rationale": "The answer includes information about delivery timing and free annual statements that is not present in the source passages."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the price stated in the reference answer while providing additional relevant context."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q13",
+  "answer_id": "q13_a9",
+  "text": "Setting up a standing order in a branch costs €2.50, and amendments after setup are charged at half that rate.",
+  "context_chunk_ids": [
+   "c_0027"
+  ],
+  "claims": [
+   "a branch standing order costs €2.50",
+   "amendments are charged at half the setup fee"
+  ],
+  "claim_support": [
+   1,
+   0
+  ],
+  "claim_cited": [
+   "c_0027",
+   "c_0027"
+  ],
+  "claim_kind": [
+   "stated",
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 0,
+   "complete": 1.0,
+   "note": "Correctly quotes the retrieved passage, then keeps going past it. Right answer, invented extras — the failure a faithfulness metric exists to catch."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9947,
+    0.0033
+   ],
+   "claim_entailment_mean": [
+    0.0773,
+    0.0008
+   ],
+   "n_premise_sentences": 13,
+   "claim_entailment_doclevel": [
+    0.0197,
+    0.0013
+   ]
+  },
+  "quadrant": "correct_ungrounded",
+  "style": "terse",
+  "failure": "unsupported_elaboration",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "The first claim is explicitly stated in the text, but the second claim regarding amendment fees is not mentioned in the source passages."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the branch charge but includes additional information about amendment fees not present in the reference."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "Setting up a standing order in a branch costs €2.50",
+      "amendments after setup are charged at half that rate"
+     ],
+     "supported": [
+      1,
+      0
+     ],
+     "score": 2,
+     "rationale": "The passage confirms the cost for setting up a standing order in a branch but provides no information regarding the cost of amendments."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the charge for setting up a standing order at the counter, although it includes additional information not present in the reference."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 2,
+     "rationale": "The passage states the cost for setting up a standing order in a branch, but it contains no information regarding charges for amendments."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the €2.50 charge for branch setup mentioned in the reference."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q14",
+  "answer_id": "q14_a9",
+  "text": "An account is treated as dormant after 24 months without activity, after which a monthly dormancy charge of EUR 2.00 applies until it is reactivated.",
+  "context_chunk_ids": [
+   "c_0463"
+  ],
+  "claims": [
+   "an account is dormant after 24 months of inactivity",
+   "a monthly dormancy charge of EUR 2.00 applies"
+  ],
+  "claim_support": [
+   1,
+   0
+  ],
+  "claim_cited": [
+   "c_0463",
+   "c_0463"
+  ],
+  "claim_kind": [
+   "stated",
+   "derived"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 0,
+   "complete": 1.0,
+   "note": "Correctly quotes the retrieved passage, then keeps going past it. Right answer, invented extras — the failure a faithfulness metric exists to catch."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.2923,
+    0.0057
+   ],
+   "claim_entailment_mean": [
+    0.021,
+    0.0006
+   ],
+   "n_premise_sentences": 14,
+   "claim_entailment_doclevel": [
+    0.0082,
+    0.0002
+   ]
+  },
+  "quadrant": "correct_ungrounded",
+  "style": "terse",
+  "failure": "unsupported_elaboration",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "The first claim is explicitly stated in the text, but the second claim regarding a EUR 2.00 charge is not mentioned in the source passages."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the 24-month threshold and provides additional relevant context found in the same policy."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "An account is treated as dormant after 24 months without activity",
+      "after which a monthly dormancy charge of EUR 2.00 applies until it is reactivated"
+     ],
+     "supported": [
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "The passage confirms the 24-month timeframe for dormancy but contains no mention of a EUR 2.00 monthly charge."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the 24-month timeframe specified in the reference answer and provides additional relevant context."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 2,
+     "rationale": "The passage does not mention a monthly dormancy charge of EUR 2.00."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the 24-month timeframe specified in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q16",
+  "answer_id": "q16_a9",
+  "text": "EasySave withdrawals need 30 days notice. You can make one penalty-free early withdrawal per calendar year.",
+  "context_chunk_ids": [
+   "c_0410"
+  ],
+  "claims": [
+   "withdrawals require 30 days notice",
+   "one penalty-free early withdrawal is allowed per year"
+  ],
+  "claim_support": [
+   1,
+   0
+  ],
+  "claim_cited": [
+   "c_0410",
+   "c_0410"
+  ],
+  "claim_kind": [
+   "stated",
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 0,
+   "complete": 1.0,
+   "note": "Correctly quotes the retrieved passage, then keeps going past it. Right answer, invented extras — the failure a faithfulness metric exists to catch."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9764,
+    0.0004
+   ],
+   "claim_entailment_mean": [
+    0.0977,
+    0.0002
+   ],
+   "n_premise_sentences": 10,
+   "claim_entailment_doclevel": [
+    0.0068,
+    0.0008
+   ]
+  },
+  "quadrant": "correct_ungrounded",
+  "style": "terse",
+  "failure": "unsupported_elaboration",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "The first claim is explicitly stated in the text, but the second claim regarding a penalty-free withdrawal per year is not mentioned in the source passages."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the required notice period and provides additional relevant context."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "EasySave withdrawals need 30 days notice.",
+      "You can make one penalty-free early withdrawal per calendar year."
+     ],
+     "supported": [
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "The first claim is explicitly stated in the text, but the second claim regarding penalty-free withdrawals is not mentioned in the source passages."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the 30-day notice period required by the reference answer and provides additional relevant context."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 2,
+     "rationale": "The passage states that 30 days notice is required, but it contains no information regarding a penalty-free early withdrawal per calendar year."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the required notice period and provides additional relevant context."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q11",
+  "answer_id": "q11_a9",
+  "text": "EasySave pays 1.6% a year. The rate is fixed for twelve months from account opening and is guaranteed to track the central bank base rate.",
+  "context_chunk_ids": [
+   "c_0135"
+  ],
+  "claims": [
+   "the annual rate is 1.6%",
+   "the rate is fixed for twelve months from opening",
+   "the rate tracks the central bank base rate"
+  ],
+  "claim_support": [
+   1,
+   0,
+   0
+  ],
+  "claim_cited": [
+   "c_0135",
+   "c_0135",
+   "c_0135"
+  ],
+  "claim_kind": [
+   "stated",
+   "stated",
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 0,
+   "complete": 1.0,
+   "note": "Correctly quotes the retrieved passage, then keeps going past it. Right answer, invented extras — the failure a faithfulness metric exists to catch."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9912,
+    0.0016,
+    0.0099
+   ],
+   "claim_entailment_mean": [
+    0.1654,
+    0.0003,
+    0.002
+   ],
+   "n_premise_sentences": 6,
+   "claim_entailment_doclevel": [
+    0.0017,
+    0.0003,
+    0.0002
+   ]
+  },
+  "quadrant": "correct_ungrounded",
+  "style": "terse",
+  "failure": "unsupported_elaboration",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1,
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "Only the annual interest rate is mentioned in the source, while the claims regarding fixed duration and central bank tracking are not present."
+    },
+    "correctness": {
+     "score": 3,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the interest rate but fails to mention the calculation and payment frequency provided in the reference."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "EasySave pays 1.6% a year.",
+      "The rate is fixed for twelve months from account opening.",
+      "The rate is guaranteed to track the central bank base rate."
+     ],
+     "supported": [
+      1,
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "The source confirms the 1.6% annual interest rate but provides no information regarding a twelve-month fixed period or tracking the central bank base rate."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the interest rate, although it includes additional information not present in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 2,
+     "rationale": "The passage does not state that the rate is fixed for twelve months or that it is guaranteed to track the central bank base rate."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 3,
+     "rationale": "The answer correctly identifies the interest rate but fails to mention the calculation and payment frequency specified in the reference."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q09",
+  "answer_id": "q09_a8",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. Having reviewed the terms that apply to your account, I can confirm that the monthly account maintenance fee is €12.00. This is set out in the schedule of fees and charges currently in force, and it is applied in the ordinary way without any further action needed on your part. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0062"
+  ],
+  "claims": [
+   "the monthly account maintenance fee is €12.00"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0062"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Verbose AND correct. Exists so answer length is not a proxy for wrongness."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9922
+   ],
+   "claim_entailment_mean": [
+    0.1242
+   ],
+   "n_premise_sentences": 8,
+   "claim_entailment_doclevel": [
+    0.0006
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "verbose",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The claim directly matches the information provided in the source passage regarding the monthly account maintenance fee."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the monthly fee of €12.00 as requested by the question."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The monthly account maintenance fee is €12.00."
+     ],
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The answer correctly identifies the monthly account maintenance fee of EUR 12.00 as stated in the source passage."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the monthly fee of €12.00 as specified in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the monthly account maintenance fee of EUR 12.00 as stated in the source passage."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the monthly fee of €12.00 as specified in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q11",
+  "answer_id": "q11_a8",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. Having reviewed the terms that apply to your account, I can confirm that the annual credit interest rate is 1.6%. This is set out in the schedule of fees and charges currently in force, and it is applied in the ordinary way without any further action needed on your part. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0135"
+  ],
+  "claims": [
+   "the annual credit interest rate is 1.6%"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0135"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Verbose AND correct. Exists so answer length is not a proxy for wrongness."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.995
+   ],
+   "claim_entailment_mean": [
+    0.166
+   ],
+   "n_premise_sentences": 6,
+   "claim_entailment_doclevel": [
+    0.0037
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "verbose",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The claim directly matches the interest rate specified in the source passage."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the interest rate of 1.6%, although it omits the calculation and payment frequency mentioned in the reference."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The annual credit interest rate is 1.6%.",
+      "This rate is set out in the schedule of fees and charges currently in force.",
+      "It is applied in the ordinary way without any further action needed on your part."
+     ],
+     "supported": [
+      1,
+      1,
+      0
+     ],
+     "score": 3,
+     "rationale": "The interest rate and its source are explicitly stated in the text, but the claim regarding the lack of required action is not mentioned in the source passages."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the 1.6% interest rate but omits the specific calculation and payment frequency details mentioned in the reference."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the annual credit interest rate of 1.6% as stated in the source passage."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 3,
+     "rationale": "The answer provides the correct interest rate but fails to mention the calculation and payment frequency specified in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q12",
+  "answer_id": "q12_a8",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. Having reviewed the terms that apply to your account, I can confirm that a paper statement costs €3.00. This is set out in the schedule of fees and charges currently in force, and it is applied in the ordinary way without any further action needed on your part. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0027"
+  ],
+  "claims": [
+   "a paper statement costs €3.00"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0027"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Verbose AND correct. Exists so answer length is not a proxy for wrongness."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9931
+   ],
+   "claim_entailment_mean": [
+    0.0774
+   ],
+   "n_premise_sentences": 13,
+   "claim_entailment_doclevel": [
+    0.0059
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "verbose",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that a paper statement issued on request costs EUR 3.00."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the price of €3.00 as specified in the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "A paper statement costs €3.00.",
+      "This is set out in the schedule of fees and charges currently in force.",
+      "It is applied in the ordinary way without any further action needed on your part."
+     ],
+     "supported": [
+      1,
+      0,
+      0
+     ],
+     "score": 3,
+     "rationale": "The cost of the paper statement is explicitly supported, but the claims regarding the schedule of fees and the automatic application of the charge are not mentioned in the source text."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the price of €3.00 as specified in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the cost of a paper statement as EUR 3.00, which is explicitly stated in the source passage."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the price of €3.00 as specified in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q13",
+  "answer_id": "q13_a8",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. Having reviewed the terms that apply to your account, I can confirm that a standing order set up in a branch costs €2.50. This is set out in the schedule of fees and charges currently in force, and it is applied in the ordinary way without any further action needed on your part. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0027"
+  ],
+  "claims": [
+   "a standing order set up in a branch costs €2.50"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0027"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Verbose AND correct. Exists so answer length is not a proxy for wrongness."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9966
+   ],
+   "claim_entailment_mean": [
+    0.0772
+   ],
+   "n_premise_sentences": 13,
+   "claim_entailment_doclevel": [
+    0.0149
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "verbose",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The claim directly matches the information provided in the source passage regarding branch standing order fees."
+    },
+    "correctness": {
+     "score": 4,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the charge for setting up a standing order at the counter, although it omits the information regarding free setup via the app or online banking."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "A standing order set up in a branch costs €2.50."
+     ],
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The answer correctly identifies the specific fee for setting up a standing order in a branch as stated in the source passage."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the specific charge for setting up a standing order at the counter/branch as requested."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the EUR 2.50 fee for setting up a standing order in a branch as stated in the source passage."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the specific charge requested, although it omits the information regarding free online setup mentioned in the reference."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q16",
+  "answer_id": "q16_a8",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. Having reviewed the terms that apply to your account, I can confirm that a withdrawal requires 30 days notice. This is set out in the schedule of fees and charges currently in force, and it is applied in the ordinary way without any further action needed on your part. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0410"
+  ],
+  "claims": [
+   "a withdrawal requires 30 days notice"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0410"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Verbose AND correct. Exists so answer length is not a proxy for wrongness."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.9943
+   ],
+   "claim_entailment_mean": [
+    0.0995
+   ],
+   "n_premise_sentences": 10,
+   "claim_entailment_doclevel": [
+    0.0259
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "verbose",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The claim is directly stated in the source passage regarding withdrawal notice requirements."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the 30 days notice period required by the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "A withdrawal requires 30 days notice."
+     ],
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The answer's core factual claim regarding the 30-day notice period is directly stated in the source passage."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the 30 days notice period required by the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly states that a withdrawal requires 30 days notice, which is explicitly mentioned in the source passage."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the 30 days notice period required by the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q14",
+  "answer_id": "q14_a8",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. Having reviewed the terms that apply to your account, I can confirm that an account becomes dormant after 24 months. This is set out in the schedule of fees and charges currently in force, and it is applied in the ordinary way without any further action needed on your part. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [
+   "c_0463"
+  ],
+  "claims": [
+   "an account becomes dormant after 24 months"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   "c_0463"
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Verbose AND correct. Exists so answer length is not a proxy for wrongness."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.0305
+   ],
+   "claim_entailment_mean": [
+    0.0022
+   ],
+   "n_premise_sentences": 14,
+   "claim_entailment_doclevel": [
+    0.0006
+   ]
+  },
+  "quadrant": "correct_grounded",
+  "style": "verbose",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The source passage explicitly states that an account is treated as dormant after 24 months without a customer-initiated transaction."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the 24-month period specified in the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "An account becomes dormant after 24 months.",
+      "This is set out in the schedule of fees and charges currently in force.",
+      "It is applied in the ordinary way without any further action needed on your part."
+     ],
+     "supported": [
+      1,
+      0,
+      0
+     ],
+     "score": 2,
+     "rationale": "The passage supports the 24-month timeframe, but does not mention the specific document name or the lack of required action for applying the status."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies the 24-month period specified in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the 24-month period for dormancy as stated in the source passage."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies the 24-month period specified in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q21",
+  "answer_id": "q21_a1",
+  "text": "I cannot find this in the published product documents. I can put you through to an adviser who will be able to help.",
+  "context_chunk_ids": [],
+  "claims": [
+   "the published documents do not cover this"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   ""
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Correct refusal."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.0
+   ],
+   "claim_entailment_mean": [
+    0.0
+   ],
+   "n_premise_sentences": 0
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The answer explicitly states that the information cannot be found in the published product documents, directly supporting the claim."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies that the information is not in the documents and offers to connect the customer to an adviser as instructed."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The information regarding current mortgage interest rates cannot be found in the published product documents.",
+      "The respondent can put the user through to an adviser who will be able to help."
+     ],
+     "supported": [
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "Since no source passages were provided, it is impossible to verify the factual claims against any text."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies that the information is not in the documents and offers to connect the customer to an adviser as instructed."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 1,
+     "rationale": "The answer cannot be supported because no source passages were provided to verify the claims."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies that the information is not in the documents and offers to connect the customer to an adviser as instructed."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q22",
+  "answer_id": "q22_a1",
+  "text": "I cannot find this in the published product documents. I can put you through to an adviser who will be able to help.",
+  "context_chunk_ids": [],
+  "claims": [
+   "the published documents do not cover this"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   ""
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Correct refusal."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.0
+   ],
+   "claim_entailment_mean": [
+    0.0
+   ],
+   "n_premise_sentences": 0
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The answer explicitly states that the information cannot be found in the published product documents, directly supporting the claim."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies that the information is not in the documents and offers to connect the customer to a human adviser as instructed."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The information regarding trading cryptocurrency through the account cannot be found in the published product documents.",
+      "The speaker can put the user through to an adviser who will be able to help."
+     ],
+     "supported": [
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "Since no source passages were provided, it is impossible to verify the truthfulness of the claims against the source material."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies that the information is not in the documents and offers to connect the customer to an adviser as instructed."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 1,
+     "rationale": "The answer cannot be supported because no source passages were provided to verify the claims."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies that the information is not in the documents and follows the required protocol of offering a human adviser."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q23",
+  "answer_id": "q23_a1",
+  "text": "I cannot find this in the published product documents. I can put you through to an adviser who will be able to help.",
+  "context_chunk_ids": [],
+  "claims": [
+   "the published documents do not cover this"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   ""
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Correct refusal."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.0
+   ],
+   "claim_entailment_mean": [
+    0.0
+   ],
+   "n_premise_sentences": 0
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The answer explicitly states that the information cannot be found in the published product documents, directly supporting the claim."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies that the information is missing and offers to connect the customer to a human adviser as instructed."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The information regarding renting safe deposit boxes and their costs cannot be found in the published product documents.",
+      "The speaker can put the user through to an adviser who will be able to help."
+     ],
+     "supported": [
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "Since no source passages were provided, it is impossible to verify the truthfulness of the claims against the source material."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer perfectly follows the reference instructions by stating the information is not in the documents and offering to connect the customer to an adviser."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer accurately reflects the absence of information in the provided source passages."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies that the information is not in the documents and offers to connect the customer to a human adviser as instructed."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q24",
+  "answer_id": "q24_a1",
+  "text": "I cannot find this in the published product documents. I can put you through to an adviser who will be able to help.",
+  "context_chunk_ids": [],
+  "claims": [
+   "the published documents do not cover this"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   ""
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Correct refusal."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.0
+   ],
+   "claim_entailment_mean": [
+    0.0
+   ],
+   "n_premise_sentences": 0
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The answer explicitly states that the information cannot be found in the published product documents, directly supporting the claim."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies that the information is missing from the documents and offers to connect the customer to an adviser as instructed."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The information regarding fees on a business current account cannot be found in the published product documents.",
+      "The respondent can put the user through to an adviser who will be able to help."
+     ],
+     "supported": [
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "The provided source passages are empty, making it impossible to verify any claims made in the answer."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer correctly identifies that the information is missing from the documents and offers to connect the customer to an adviser, matching the reference exactly in intent."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "yes",
+     "score": 5,
+     "rationale": "The answer accurately reflects the absence of information in the provided source passages."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer correctly identifies that the information is missing and offers to connect the customer to an adviser as instructed."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q25",
+  "answer_id": "q25_a1",
+  "text": "I cannot find this in the published product documents. I can put you through to an adviser who will be able to help.",
+  "context_chunk_ids": [],
+  "claims": [
+   "the published documents do not cover this"
+  ],
+  "claim_support": [
+   1
+  ],
+  "claim_cited": [
+   ""
+  ],
+  "claim_kind": [
+   "stated"
+  ],
+  "human": {
+   "correct": 1,
+   "grounded": 1,
+   "complete": 1.0,
+   "note": "Correct refusal."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.0
+   ],
+   "claim_entailment_mean": [
+    0.0
+   ],
+   "n_premise_sentences": 0
+  },
+  "quadrant": "correct_grounded",
+  "style": "terse",
+  "failure": "",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The answer explicitly states that the information cannot be found in the published product documents, directly supporting the claim."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer perfectly follows the reference instructions by stating the information is not in the documents and offering to connect the customer to an adviser."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "The information regarding matching exchange rates is not found in the published product documents.",
+      "The speaker can transfer the user to an adviser who can provide help."
+     ],
+     "supported": [
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "No source passages were provided to verify the claims."
+    },
+    "correctness": {
+     "score": 5,
+     "correct": 1,
+     "rationale": "The answer perfectly follows the reference instructions by stating the information is not in the documents and offering to connect the customer to an adviser."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 1,
+     "rationale": "The answer cannot be supported because no source passages were provided to verify the claim."
+    },
+    "correctness": {
+     "correct": "yes",
+     "score": 5,
+     "rationale": "The answer accurately reflects the reference instruction by stating the information is not in the documents and offering to connect the customer to an adviser."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q21",
+  "answer_id": "q21_a2",
+  "text": "Thank you for getting in touch about this. I am happy to set out the position for you clearly. Our mortgage products currently start at around 3.4% for a five-year fixed rate, subject to valuation and status. A full illustration can be prepared for you on request. I hope this fully clarifies the position. Please do not hesitate to contact us again if any part of this is unclear, and we will be glad to assist further.",
+  "context_chunk_ids": [],
+  "claims": [
+   "mortgage rates start at about 3.4% for a five-year fix"
+  ],
+  "claim_support": [
+   0
+  ],
+  "claim_cited": [
+   ""
+  ],
+  "claim_kind": [
+   "derived"
+  ],
+  "human": {
+   "correct": 0,
+   "grounded": 0,
+   "complete": 0.0,
+   "note": "THE TRAP FOR ACT 6: fluent, structured, confident, and entirely fabricated. There is no mortgage document in the corpus at all."
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.0
+   ],
+   "claim_entailment_mean": [
+    0.0
+   ],
+   "n_premise_sentences": 0
+  },
+  "quadrant": "wrong_ungrounded",
+  "style": "verbose",
+  "failure": "llm_invented",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      1
+     ],
+     "score": 5,
+     "rationale": "The claim is directly stated in the provided answer text."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides specific interest rates instead of stating they are not covered by the documents and offering a human adviser as required."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "Mortgage products currently start at around 3.4% for a five-year fixed rate.",
+      "Rates are subject to valuation and status.",
+      "A full illustration can be prepared on request."
+     ],
+     "supported": [
+      0,
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "No source passages were provided to verify any of the claims made in the answer."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides specific interest rates which contradicts the reference answer stating that this information is not covered by the published documents."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 1,
+     "rationale": "The source passages are empty, so there is no information to support the claims made in the answer."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 1,
+     "rationale": "The answer provides specific interest rates which contradicts the reference instruction to state that the information is not covered by the documents."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ },
+ {
+  "qid": "q24",
+  "answer_id": "q24_a2",
+  "text": "Business accounts carry a monthly fee of EUR 19.00 and the same transaction charges as the Classic Current Account.",
+  "context_chunk_ids": [],
+  "claims": [
+   "the business account monthly fee is EUR 19.00",
+   "business transaction charges match the Classic account"
+  ],
+  "claim_support": [
+   0,
+   0
+  ],
+  "claim_cited": [
+   "",
+   ""
+  ],
+  "claim_kind": [
+   "derived",
+   "stated"
+  ],
+  "human": {
+   "correct": 0,
+   "grounded": 0,
+   "complete": 0.0,
+   "note": ""
+  },
+  "nli": {
+   "model": "cross-encoder/nli-deberta-v3-small",
+   "granularity": "sentence_max",
+   "claim_entailment": [
+    0.0,
+    0.0
+   ],
+   "claim_entailment_mean": [
+    0.0,
+    0.0
+   ],
+   "n_premise_sentences": 0
+  },
+  "quadrant": "wrong_ungrounded",
+  "style": "terse",
+  "failure": "llm_invented",
+  "judges": {
+   "google/gemma-4-26b-a4b-it": {
+    "faithfulness": {
+     "supported": [
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "No source passages were provided to evaluate the claims against."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides specific fee information that is explicitly stated as not being covered by the published documents in the reference answer."
+    },
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (self-extracted)": {
+    "faithfulness": {
+     "claims": [
+      "Business accounts carry a monthly fee of EUR 19.00",
+      "Business accounts have the same transaction charges as the Classic Current Account"
+     ],
+     "supported": [
+      0,
+      0
+     ],
+     "score": 1,
+     "rationale": "No source passages were provided to evaluate the claims against."
+    },
+    "correctness": {
+     "score": 1,
+     "correct": 0,
+     "rationale": "The answer provides specific fee information that is explicitly stated as not being covered by the published documents in the reference answer."
+    },
+    "mode": "self",
+    "errors": null
+   },
+   "google/gemma-4-26b-a4b-it (v2 prompt)": {
+    "faithfulness": {
+     "grounded": "no",
+     "score": 1,
+     "rationale": "The provided source passages are empty, so there is no information to support the answer."
+    },
+    "correctness": {
+     "correct": "no",
+     "score": 1,
+     "rationale": "The answer provides specific fee information that is explicitly stated as not covered by the published documents in the reference answer."
+    },
+    "mode": "self2",
+    "errors": null
+   }
+  }
+ }
+]
