@@ -1,0 +1,21 @@
+[project]
+name = "fdd-we5-rag-project"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.136.3",
+    "numpy>=2.4.6",
+    "openai>=2.38.0",
+    "pypdf>=6.12.2",
+    "python-multipart>=0.0.30",
+    "qdrant-client>=1.18.0",
+    "rank-bm25>=0.2.2",
+    "rich>=15.0.0",
+    "uvicorn[standard]>=0.48.0",
+]
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "nbformat>=5.10.4",
+]
